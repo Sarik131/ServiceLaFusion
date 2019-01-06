@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/ivWelcome"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:onClick="onclick"
+        app:srcCompat="@drawable/welcome" />
+</RelativeLayout>
+
+    <!--<RelativeLayout-->
+    <!--android:layout_weight=".5"-->
+    <!--android:background="#13595e"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent">-->
+
+
+    <!--<ImageView-->
+    <!--android:id="@+id/imageView"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_centerInParent="true"-->
+    <!--app:srcCompat="@drawable/logo"-->
+    <!--android:contentDescription="TODO" />-->
+
+
+    <!--</RelativeLayout>-->
+
+
+    <!--<RelativeLayout-->
+
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:layout_weight=".2">-->
+
+
+    <!--<EditText-->
+    <!--android:id="@+id/txtcname"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_alignParentStart="false"-->
+    <!--android:layout_alignParentTop="true"-->
+    <!--android:layout_centerHorizontal="true"-->
+    <!--android:layout_centerInParent="false"-->
+    <!--android:layout_centerVertical="true"-->
+    <!--android:ems="10"-->
+    <!--android:hint="@string/name"-->
+    <!--android:inputType="textPersonName" />-->
+
+    <!--<EditText-->
+    <!--android:id="@+id/cemail"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_alignParentStart="false"-->
+    <!--android:layout_below="@+id/txtcname"-->
+    <!--android:layout_centerHorizontal="true"-->
+    <!--android:ems="10"-->
+    <!--android:hint="@string/email"-->
+    <!--android:inputType="textEmailAddress" />-->
+
+    <!--<EditText-->
+    <!--android:id="@+id/caddress"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_below="@+id/cemail"-->
+    <!--android:layout_centerHorizontal="true"-->
+    <!--android:ems="10"-->
+    <!--android:hint="Address"-->
+    <!--android:inputType="textPostalAddress" />-->
+
+    <!--<EditText-->
+    <!--android:id="@+id/cphone"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_below="@+id/caddress"-->
+    <!--android:layout_centerHorizontal="true"-->
+    <!--android:ems="10"-->
+    <!--android:hint="Phone Number"-->
+    <!--android:inputType="phone" />-->
+
+    <!--<EditText-->
+    <!--android:id="@+id/txtuserid"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_below="@+id/cphone"-->
+    <!--android:layout_centerHorizontal="true"-->
+    <!--android:ems="10"-->
+    <!--android:hint="User ID"-->
+    <!--android:inputType="textPersonName" />-->
+
+    <!--<EditText-->
+    <!--android:id="@+id/txtpassword"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_below="@+id/txtuserid"-->
+    <!--android:layout_centerHorizontal="true"-->
+    <!--android:ems="10"-->
+    <!--android:hint="Password"-->
+    <!--android:inputType="textPassword"-->
+    <!--/>-->
+
+    <!--<EditText-->
+    <!--android:id="@+id/txtrepassword"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_below="@+id/txtpassword"-->
+    <!--android:layout_centerHorizontal="true"-->
+    <!--android:ems="10"-->
+    <!--android:hint="@string/retype_password"-->
+    <!--android:inputType="textPassword" />-->
+
+    <!--<Button-->
+    <!--android:id="@+id/btncregister"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_alignParentBottom="true"-->
+    <!--android:layout_alignStart="@+id/txtcname"-->
+    <!--android:background="#13595e"-->
+    <!--android:onClick="onRegister"-->
+    <!--android:text="Register"-->
+    <!--android:textColor="#ffffff" />-->
+
+    <!--<Button-->
+    <!--android:id="@+id/cancle"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_alignEnd="@+id/txtcname"-->
+    <!--android:layout_alignTop="@+id/btncregister"-->
+    <!--android:background="#13595e"-->
+    <!--android:text="@android:string/cancel"-->
+    <!--android:textColor="#ffffff" />-->
+
+    <!--</RelativeLayout>-->
+
+

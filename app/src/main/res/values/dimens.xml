@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--home-->
+    <dimen name="app_normal_margin">16dp</dimen>
+    <dimen name="app_small_margin">8dp</dimen>
+    <dimen name="textSize">15dp</dimen>
+
+    <dimen name="margin">5dp</dimen>
+    <dimen name="margincard">10dp</dimen>
+    <dimen name="elevation">8dp</dimen>
+
+    <!--category details-->
+    <dimen name="spnamesize">25dp</dimen>
+
+    <!--Sp details-->
+    <dimen name="starMargin">215dp</dimen>
+</resources>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="10"
+    tools:context=".LoginActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="4"
+        android:background="@color/colorPrimary">
+
+        <ImageView
+            android:id="@+id/ivLogo"
+            android:layout_width="215dp"
+            android:layout_height="131dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/logo1"
+            android:contentDescription="@string/todo" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="6"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/edtEmail"
+            style="@style/EditTextStyle"
+            android:layout_marginBottom="@dimen/app_small_margin"
+            android:hint="@string/enter_email_id" />
+
+        <EditText
+            android:id="@+id/edtPassword"
+            style="@style/EditTextStyle"
+            android:hint="@string/password" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/app_normal_margin"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <Button
+                android:id="@+id/btnLogin"
+                style="@style/ButtonStyle"
+                android:layout_width="0dp"
+                android:layout_marginRight="@dimen/app_small_margin"
+                android:layout_weight="1"
+                android:text="@string/login" />
+
+            <Button
+                android:id="@+id/btnRegister"
+                style="@style/ButtonStyle"
+                android:layout_width="0dp"
+                android:layout_marginLeft="@dimen/app_small_margin"
+                android:layout_weight="1"
+                android:text="@string/register" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/forpwd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/forgot_password"
+            android:textColor="#1034A6"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/tvRegister"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New_user?/Register"
+            android:textColor="#1034A6"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+</LinearLayout>

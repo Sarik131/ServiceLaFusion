@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="10"
+    tools:context=".QueryStatusActivity">
+
+    <include layout="@layout/layout_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/layoutToolbar"></include>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:weightSum="2">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:weightSum="2"
+
+            tools:ignore="NestedWeights">
+
+            <TextView
+                android:id="@+id/tvCategory"
+                style="@style/EditTextStyle"
+                android:layout_gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:text="Category :"
+                tools:ignore="NestedWeights" />
+
+            <TextView
+                android:id="@+id/tvCategoryName"
+                style="@style/EditTextStyle"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:text="@string/category_name" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <TextView
+                android:id="@+id/tvDescription"
+                style="@style/EditTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center_vertical"
+                android:text="Description :" />
+
+            <TextView
+                android:id="@+id/tvDescriptionName"
+                style="@style/EditTextStyle"
+                android:layout_weight="1"
+                android:layout_gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:text="@string/description_name" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:weightSum="2"
+            android:orientation="horizontal"
+            >
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@drawable/ic_action_name"
+                />
+
+        </LinearLayout>
+
+        <!--<LinearLayout-->
+        <!--android:weightSum="2"-->
+        <!--android:orientation="horizontal"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:gravity="center"-->
+        <!--android:layout_margin="@dimen/app_normal_margin">-->
+
+        <!---->
+        <!--</LinearLayout>-->
+
+    </LinearLayout>
+</LinearLayout>

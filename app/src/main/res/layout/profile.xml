@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<LinearLayout tools:context=".MainActivity"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight=".2"
+        android:background="#13595E">
+
+
+        <ImageView
+            android:id="@+id/ivp"
+            android:layout_width="149dp"
+            android:layout_height="156dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="47dp"
+            app:srcCompat="@drawable/logo1" />
+
+        <TextView
+            android:id="@+id/tvp"
+            android:layout_width="292dp"
+            android:layout_height="43dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="18dp"
+            android:text="Vinay Chudasama"
+            android:textAlignment="center"
+            android:textColor="@android:color/background_light"
+            android:textSize="28dp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight=".2">
+
+        <ImageView
+            android:id="@+id/ivep"
+            android:layout_width="22dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignTop="@+id/tvep"
+            android:layout_marginStart="76dp"
+           android:src="@drawable/mail" />
+
+        <TextView
+            android:id="@+id/tvep"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/tvdlp"
+            android:layout_alignParentTop="true"
+            android:layout_alignRight="@id/ivep"
+            android:layout_marginTop="30dp"
+            android:text="vinayvhc38@gmail.com"
+            android:textAlignment="center"
+            android:textColor="#13595E"
+            android:textSize="20dp" />
+
+        <ImageView
+            android:id="@+id/ivcp"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_alignBottom="@+id/tvcp"
+            android:layout_alignStart="@+id/ivep"
+            android:src="@drawable/call" />
+
+        <TextView
+            android:id="@+id/tvcp"
+            android:layout_width="213dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignStart="@+id/tvep"
+            android:layout_marginTop="86dp"
+            android:layout_alignRight="@id/ivcp"
+            android:text="7046102022"
+            android:textAlignment="textStart"
+            android:textColor="#13595E"
+            android:textSize="20dp" />
+
+        <ImageView
+            android:id="@+id/ivlp"
+            android:layout_width="32dp"
+            android:layout_height="31dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignTop="@+id/tvlp"
+            android:layout_marginStart="59dp"
+            android:src="@drawable/like" />
+
+        <TextView
+            android:id="@+id/tvlp"
+            android:layout_width="78dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="97dp"
+            android:layout_toEndOf="@+id/ivep"
+            android:text="Likes"
+            android:textAlignment="center"
+            android:textColor="#13595E"
+            android:textSize="22dp" />
+
+        <ImageView
+            android:id="@+id/ivdlp"
+            android:layout_width="32dp"
+            android:layout_height="31dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignTop="@+id/tvlp"
+            android:layout_marginEnd="144dp"
+            android:src="@drawable/dislike" />
+
+        <TextView
+            android:id="@+id/tvdlp"
+            android:layout_width="75dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignTop="@+id/ivlp"
+            android:layout_marginEnd="61dp"
+            android:text="Dislike"
+            android:textAlignment="center"
+            android:textColor="#13595E"
+            android:textSize="22dp" />
+
+
+    </RelativeLayout>
+
+</LinearLayout>

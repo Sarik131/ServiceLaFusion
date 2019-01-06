@@ -1,0 +1,52 @@
+<resources>
+    <string name="app_name">Service_LaFusion</string>
+    <string name="name">Name</string>
+    <string name="email">Email</string>
+    <string name="retype_password">Retype Password</string>
+    <string name="todo">TODO</string>
+    <string name="address">Address</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="user_id">User ID</string>
+    <string name="password">Password</string>
+    <string name="register">Register</string>
+    <string name="log">logo1</string>
+
+    <string name="cancle">Cancle</string>
+    <string name="forgot_password">Forgot password ?</string>
+    <string name="login">Login</string>
+    <string name="usernamee">Usernamee</string>
+
+    <!-- Login -->
+    <string name="enter_email_id">Enter Email ID</string>
+
+    <!-- home-->
+    <string name="plumbing">Plumbing</string>
+    <string name="appliances">Appliances</string>
+    <string name="Vehicle">Vehicle care</string>
+    <string name="Painting">Painter</string>
+    <string name="Carpentry">Carpentry</string>
+    <string name="pest">Pest control</string>
+    <string name="Cleaning">Cleaning</string>
+    <string name="home">Home security</string>
+    <string name="Elec">Electrician</string>
+
+    <!-- Profile -->
+    <string name="cont">7272762626</string>
+    <string name="sarik">Sarik</string>
+
+    <!--Query Screen-->
+    <string name="category_name">category name</string>
+    <string name="description_name">Description name</string>
+
+
+    <!--Sp Details-->
+    <string name="spname">No name</string>
+
+    <!---Create Query-->
+
+    <string name="description">Description</string>
+    <string name="writedesrciption">Write Here</string>
+    <string name="search">Search here</string>
+    <string name="submit">Submit</string>
+
+</resources>
