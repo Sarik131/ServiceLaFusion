@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity  {
     {
         ImageView ivWelcomme = (ImageView) findViewById(R.id.ivWelcome);
         ivWelcomme.animate().alpha(0f).setDuration(1000);
-        Intent intent = new Intent(this, HomeActivity.class);
+        Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
     }
 //    @Override

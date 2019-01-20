@@ -6,14 +6,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
-public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
+public class LoginActivity extends AppCompatActivity {
     TextView tvRegister;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
         mappingViews();
-        addListener();
+      // addListener();
 
     }
 
@@ -21,19 +21,24 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         tvRegister = findViewById(R.id.tvRegister);
     }
 
-    void addListener() {
-        tvRegister.setOnClickListener(this);
-    }
+//    void addListener() {
+//        tvRegister.setOnClickListener(this);
+//    }
 
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.tvRegister:
-                Intent intent = new Intent(this, CRegisterActivity.class);
-                startActivity(intent);
-                break;
 
-        }
+    public void onLogin(View v) {
+
+        Intent intent = new Intent(this, HomeActivity.class);
+        startActivity(intent);
+
+//
+//        switch (v.getId()) {
+//            case R.id.tvRegister:
+//                Intent intent = new Intent(this, CRegisterActivity.class);
+//                startActivity(intent);
+//                break;
+//
+//        }
 
     }
 }

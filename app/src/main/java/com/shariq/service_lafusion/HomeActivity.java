@@ -21,6 +21,8 @@ public class HomeActivity extends AppCompatActivity implements HomeAdapter.ItemC
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        // This is test comment
         //startActivity(new Intent(MainActivity.this, ARactivity.class));
 //        // data to populate the RecyclerView with
 //       // String[] data = {"@string/plumbing", "@string/appliances", "@string/appliances", "@string/appliances", "@string/appliances", "@string/appliances", "@string/appliances", "@string/appliances", "@string/appliances"};

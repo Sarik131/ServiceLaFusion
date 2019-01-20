@@ -83,7 +83,7 @@
         android:src="@drawable/contact"
             android:layout_marginLeft="120dp"/>
 
-        <TextView
+         <TextView
             android:id="@+id/tvContact"
             style="@style/TextViewStyle"
             android:layout_marginLeft="@dimen/app_normal_margin"
