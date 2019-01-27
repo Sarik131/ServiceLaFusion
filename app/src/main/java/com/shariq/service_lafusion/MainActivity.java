@@ -2,6 +2,7 @@ package com.shariq.service_lafusion;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
@@ -11,11 +12,25 @@ public class MainActivity extends AppCompatActivity  {
 //    HomeAdapter adapter;
 //    private ArrayList<Category> data;
 
+    Handler handler;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
+
+        handler=new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Intent intent = new Intent(MainActivity.this,LoginActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        },3000);
+
+
 //        Intent intent = new Intent(this, HomeActivity.class);
 //        startActivity(intent);
 
@@ -52,13 +67,15 @@ public class MainActivity extends AppCompatActivity  {
 //        recyclerView.setAdapter(adapter);
     }
 
-    public void onclick(View view)
+   /* public void onclick(View view)
     {
         ImageView ivWelcomme = (ImageView) findViewById(R.id.ivWelcome);
         ivWelcomme.animate().alpha(0f).setDuration(1000);
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
-    }
+
+
+    }*/
 //    @Override
 //    public void onItemClick(int position) {
 //        Log.i("TAG", "You clicked number , which is at cell position " + position);

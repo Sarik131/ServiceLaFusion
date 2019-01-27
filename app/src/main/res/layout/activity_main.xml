@@ -9,13 +9,16 @@
     tools:context=".MainActivity">
 
     <ImageView
-        android:id="@+id/ivWelcome"
+        android:id="@+id/ivAppLogo"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:onClick="onclick"
-        app:srcCompat="@drawable/welcome" />
+        android:background="@color/colorAccent"
+        app:srcCompat="@drawable/applogo" />
+    <!--android:onClick="onclick"-->
+
+
 </RelativeLayout>
 
     <!--<RelativeLayout-->
