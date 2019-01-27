@@ -22,6 +22,8 @@ public class HomeActivity extends AppCompatActivity implements HomeAdapter.ItemC
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+        //http servlet request
+        //
         // This is test comment
         //startActivity(new Intent(MainActivity.this, ARactivity.class));
 //        // data to populate the RecyclerView with
