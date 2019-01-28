@@ -8,20 +8,46 @@
     android:weightSum="10">
 
     <!--LOGO-->
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="2"
+        android:weightSum="2"
+        android:orientation="vertical"
         android:background="@color/colorPrimary">
 
-        <ImageView
+        <LinearLayout
+            android:id="@+id/ivHomeBackground"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:background="@drawable/homebackground"
+            android:orientation="vertical">
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_below="@id/ivHomeBackground">
+
+            <SearchView
+                android:id="@+id/svSearchServices"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="What service do you need ?">
+
+            </SearchView>
+
+        </LinearLayout>
+
+        <!--<ImageView
             android:id="@+id/ivLogo"
-            android:layout_width="215dp"
-            android:layout_height="131dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:contentDescription="@string/todo"
-            android:src="@drawable/logo1" />
-    </RelativeLayout>
+            android:src="@drawable/logo1" />-->
+        <!--android:contentDescription="@string/todo"-->
+    </LinearLayout>
 
 <GridLayout
     android:columnCount="3"

@@ -31,8 +31,8 @@ public class MainActivity extends AppCompatActivity  {
         },3000);
 
 
-//        Intent intent = new Intent(this, HomeActivity.class);
-//        startActivity(intent);
+      /*  Intent intent = new Intent(this, HomeActivity.class);
+        startActivity(intent);*/
 
 
         //startActivity(new Intent(MainActivity.this, ARactivity.class));
