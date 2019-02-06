@@ -19,7 +19,6 @@ public class MainActivity extends AppCompatActivity  {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
-
         handler=new Handler();
         handler.postDelayed(new Runnable() {
             @Override
@@ -31,7 +30,7 @@ public class MainActivity extends AppCompatActivity  {
         },3000);
 
 
-      /*  Intent intent = new Intent(this, HomeActivity.class);
+       /* Intent intent = new Intent(this, HomeActivity.class);
         startActivity(intent);*/
 
 
