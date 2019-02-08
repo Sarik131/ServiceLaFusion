@@ -4,6 +4,9 @@ public class Category {
 
     private int imageId;
     private String name;
+    private String id;
+
+
 
     public Category(int imageId, String text) {
 

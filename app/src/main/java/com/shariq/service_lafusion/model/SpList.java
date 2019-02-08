@@ -4,6 +4,25 @@ public class SpList {
     private int imageId;
     private String name;
     private int stars;
+    private int amount;
+
+    public int getAmount() {
+        return amount;
+    }
+
+    public void setAmount(int amount) {
+        this.amount = amount;
+    }
+
+    public int getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(int categoryId) {
+        this.categoryId = categoryId;
+    }
+
+    private int categoryId;
 
     public SpList(int imageId, String text, int stars) {
 
