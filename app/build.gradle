@@ -31,4 +31,5 @@ dependencies {
     implementation files('libs/beyondar-v0.9.3.jar')
     implementation 'com.squareup.retrofit2:retrofit:2.3.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
+    implementation 'com.android.support:design:27.0.2'
 }

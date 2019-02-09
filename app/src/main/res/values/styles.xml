@@ -1,8 +1,10 @@
+<?xml version="1.0"?>
 <resources>
-
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+
+    <style parent="Theme.AppCompat.Light.NoActionBar" name="AppTheme">
         <!-- Customize your theme here. -->
+
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
@@ -10,6 +12,22 @@
         <item name="android:windowBackground">@color/colorBackgroundWhite</item>
     </style>
 
+    <style parent="Theme.AppCompat.NoActionBar" name="AppThemeNew">
+        <!-- Customize your theme here. -->
+
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:colorBackground">@color/colorBackgroundWhite</item>
+        <item name="android:windowBackground">@color/colorBackgroundWhite</item>
+    </style>
+    <style parent="Theme.AppCompat.Light.DarkActionBar" name="Actionbar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+
+    </style>
     <style name="EditTextStyle">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
@@ -17,17 +35,72 @@
         <item name="android:layout_marginRight">@dimen/app_normal_margin</item>
     </style>
 
-    <style name="ButtonStyle">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">48dp</item>
-        <item name="android:background">@color/colorPrimary</item>
-        <item name="android:textColor">@android:color/white</item>
-        <item name="android:textSize">17sp</item>
-    </style>
-
     <style name="TextViewStyle">
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:textSize">15sp</item>
+
     </style>
+
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginTop="@dimen/app_normal_margin"-->
+    <!--android:layout_marginBottom="@dimen/app_normal_margin"-->
+    <!--android:layout_marginLeft="@dimen/app_normal_margin"-->
+    <!--android:layout_marginRight="@dimen/app_normal_margin"-->
+
+    <style name="ButtonStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginRight">@dimen/app_normal_margin</item>
+        <item name="android:layout_marginLeft">@dimen/app_normal_margin</item>
+        <item name="android:layout_marginTop">@dimen/app_normal_margin</item>
+        <item name="android:layout_marginBottom">@dimen/app_normal_margin</item>
+        <item name="android:background">@drawable/round_button</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">17sp</item>
+    </style>
+
+    <style name="SpinnerStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">@dimen/app_normal_margin</item>
+        <item name="android:layout_marginRight">@dimen/app_normal_margin</item>
+    </style>
+
+
 </resources>
+
+    <!--<resources>-->
+
+    <!--&lt;!&ndash; Base application theme. &ndash;&gt;-->
+    <!--<style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">-->
+        <!--&lt;!&ndash; Customize your theme here. &ndash;&gt;-->
+        <!--<item name="colorPrimary">@color/colorPrimary</item>-->
+        <!--<item name="colorPrimaryDark">@color/colorPrimaryDark</item>-->
+        <!--<item name="colorAccent">@color/colorAccent</item>-->
+        <!--<item name="android:colorBackground">@color/colorBackgroundWhite</item>-->
+        <!--<item name="android:windowBackground">@color/colorBackgroundWhite</item>-->
+    <!--</style>-->
+
+    <!--<style name="EditTextStyle">-->
+        <!--<item name="android:layout_width">match_parent</item>-->
+        <!--<item name="android:layout_height">wrap_content</item>-->
+        <!--<item name="android:layout_marginLeft">@dimen/app_normal_margin</item>-->
+        <!--<item name="android:layout_marginRight">@dimen/app_normal_margin</item>-->
+    <!--</style>-->
+
+    <!--<style name="ButtonStyle">-->
+        <!--<item name="android:layout_width">match_parent</item>-->
+        <!--<item name="android:layout_height">48dp</item>-->
+        <!--<item name="android:background">@color/colorPrimary</item>-->
+        <!--<item name="android:textColor">@android:color/white</item>-->
+        <!--<item name="android:textSize">17sp</item>-->
+    <!--</style>-->
+
+    <!--<style name="TextViewStyle">-->
+        <!--<item name="android:layout_height">wrap_content</item>-->
+        <!--<item name="android:layout_width">match_parent</item>-->
+        <!--<item name="android:textSize">15sp</item>-->
+    <!--</style>-->
+<!--</resources>-->

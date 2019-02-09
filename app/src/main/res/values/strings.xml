@@ -1,37 +1,37 @@
 <resources>
-    <string name="app_name">Service_LaFusion</string>
-    <string name="name">Name</string>
-    <string name="email">Email</string>
-    <string name="retype_password">Retype Password</string>
-    <string name="todo">TODO</string>
-    <string name="address">Address</string>
-    <string name="phone_number">Phone Number</string>
-    <string name="user_id">User ID</string>
-    <string name="password">Password</string>
-    <string name="register">Register</string>
-    <string name="log">logo1</string>
+    <!--<string name="app_name">Service_LaFusion</string>-->
+    <!--<string name="name">Name</string>-->
+    <!--<string name="email">Email</string>-->
+    <!--<string name="retype_password">Retype Password</string>-->
+    <!--<string name="todo">TODO</string>-->
+    <!--<string name="address">Address</string>-->
+    <!--<string name="phone_number">Phone Number</string>-->
+    <!--<string name="user_id">User ID</string>-->
+    <!--<string name="password">Password</string>-->
+    <!--<string name="register">Register</string>-->
+    <!--<string name="log">logo1</string>-->
 
-    <string name="cancle">Cancle</string>
-    <string name="forgot_password">Forgot password ?</string>
-    <string name="login">Login</string>
-    <string name="usernamee">Usernamee</string>
+    <!--<string name="cancle">Cancle</string>-->
+    <!--<string name="forgot_password">Forgot password ?</string>-->
+    <!--<string name="login">Login</string>-->
+    <!--<string name="usernamee">Usernamee</string>-->
 
-    <!-- Login -->
-    <string name="enter_email_id">Enter Email ID</string>
+    <!--&lt;!&ndash; Login &ndash;&gt;-->
+    <!--<string name="enter_email_id">Enter Email ID</string>-->
 
-    <!-- home-->
-    <string name="plumbing">Plumbing</string>
-    <string name="appliances">Appliances</string>
-    <string name="Vehicle">Vehicle care</string>
-    <string name="Painting">Painter</string>
-    <string name="Carpentry">Carpentry</string>
-    <string name="pest">Pest control</string>
-    <string name="Cleaning">Cleaning</string>
-    <string name="home">Home security</string>
-    <string name="Elec">Electrician</string>
+    <!--&lt;!&ndash; home&ndash;&gt;-->
+    <!--<string name="plumbing">Plumbing</string>-->
+    <!--<string name="appliances">Appliances</string>-->
+    <!--<string name="Vehicle">Vehicle care</string>-->
+    <!--<string name="Painting">Painter</string>-->
+    <!--<string name="Carpentry">Carpentry</string>-->
+    <!--<string name="pest">Pest control</string>-->
+    <!--<string name="Cleaning">Cleaning</string>-->
+    <!--<string name="home">Home security</string>-->
+    <!--<string name="Elec">Electrician</string>-->
 
-    <!-- Profile -->
-    <string name="cont">7272762626</string>
+    <!--&lt;!&ndash; Profile &ndash;&gt;-->
+    <!--<string name="cont">7272762626</string>-->
     <string name="sarik">Sarik</string>
 
     <!--Query Screen-->
@@ -44,9 +44,92 @@
 
     <!---Create Query-->
 
+    <!--<string name="description">Description</string>-->
+    <!--<string name="writedesrciption">Write Here</string>-->
+    <!--<string name="search">Search here</string>-->
+    <!--<string name="submit">Submit</string>-->
+
+    <!--VINAY-->
+
+
+    <string name="app_name">Work Force</string>
+    <string name="navigation_drawer_open">Open Navigation Drawer</string>
+    <string name="navigation_drawer_close">Close Navigation Drawer</string>
+    <string name="todo">TODO</string>
+    <string name="user_id">User ID</string>
+    <string name="register">Register</string>
+
+    <string name="forgot_password">FORGOT PASSWORD?</string>
+    <string name="login">LOG IN</string>
+
+    <!-- Login -->
+
+    <string name="enter_email_id">email add</string>
+    <string name="password">Password</string>
+    <string name="Loginsp">Login as Service Provider</string>
+    <string name="alreadyreg">Already Registered</string>
+
+    <!--Register -->
+
+    <string name="name">Name</string>
+    <string name="email">Email</string>
+    <string name="address">Address</string>
+    <string name="phone_number">PhoneNumber</string>
+    <string name="submit">Submit</string>
+    <string name="experience">Experience</string>
+    <string name="retype_password">Retype Password</string>
+    <string name="category"></string>
+
+
+    <!--Profile -->
+
+    <string name="vinay">Vinay Chudasama</string>
+    <string name="cont">7040102022</string>
+    <string name="mail">vinayvhc38@gmail.com</string>
+
+    <!---home-->
+
+    <string name="search">Search here</string>
+
+    <!---Forgot password-->
+
+    <string name="mobileemail">Phone or email</string>
+    <string name="logoname">Service Force</string>
+    <string name="continu">Continue</string>
+    <string name="cancle">Cancle</string>
+    <string name="history">History</string>
+    <string name="hint">Please enter your phone number or email to search for your account.</string>
+
+    <!---Create Query-->
+
     <string name="description">Description</string>
     <string name="writedesrciption">Write Here</string>
-    <string name="search">Search here</string>
-    <string name="submit">Submit</string>
+    <string name="plumbing">plumbing</string>
+    <string name="appliances">appliances</string>
+    <string name="Cleaning">cleaning</string>
+    <string name="Elec">elec</string>
+    <string name="Carpentry">carpenter</string>
+    <string name="Vehicle">vehicle</string>
+    <string name="Painting">painting</string>
+    <string name="home">home</string>
+    <string name="pest">pest</string>
 
+    <string-array name="category">
+        <item>Select Category..</item>
+        <item>Carpenter</item>
+        <item>Painter</item>
+        <item>Home Cleaning</item>
+        <item>Appliances Repair</item>
+        <item>Electrician</item>
+        <item>Movers and Pakers</item>
+        <item>Photographer</item>
+        <item>Event Management</item>
+        <item>Fitness Trainer</item>
+        <item>Pest Controller</item>
+        <item>Beauty Parlour</item>
+        <item>Gardener</item>
+        <item>Astrologer</item>
+        <item>Plumber</item>
+
+    </string-array>
 </resources>

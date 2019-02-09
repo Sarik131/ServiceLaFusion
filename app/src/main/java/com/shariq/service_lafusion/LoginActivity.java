@@ -10,10 +10,7 @@ import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
-import com.google.gson.reflect.TypeToken;
-import com.shariq.service_lafusion.model.LoginPost;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -32,8 +29,8 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
         mappingViews();
-        email= (TextView) findViewById(R.id.edtEmail);
-        password=(TextView) findViewById(R.id.edtPassword);
+        email= (TextView) findViewById(R.id.edtSpEmail);
+        password=(TextView) findViewById(R.id.edtSpPassword);
         // addListener();
 
     }
@@ -62,8 +59,8 @@ public class LoginActivity extends AppCompatActivity {
 
             // Sending param
             Map<String, String> params = new HashMap<>();
-            params.put("email", email.toString());
-            params.put("password", password.toString());
+            params.put("email", email.getText().toString());
+            params.put("password", password.getText().toString());
 
             // Initializing APIManager
             APIManager api = retrofit.create(APIManager.class);

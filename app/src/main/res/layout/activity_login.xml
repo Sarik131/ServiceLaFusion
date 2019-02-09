@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="10"
+    tools:context=".MainActivity">
+
+    <include layout="@layout/layout_toolbar" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="9"
+        android:gravity="center"
+        android:orientation="vertical">
+
+
+        <EditText
+            android:id="@+id/edtSpEmail"
+            style="@style/EditTextStyle"
+            android:layout_marginBottom="@dimen/app_small_margin"
+            android:hint="@string/enter_email_id" />
+
+        <EditText
+            android:id="@+id/edtSpPassword"
+            style="@style/EditTextStyle"
+            android:hint="@string/password" />
+
+
+
+            <Button
+                android:id="@+id/btnLogin"
+                style="@style/ButtonStyle"
+                android:onClick="onLogin"
+                android:text="@string/login"
+                tools:ignore="OnClick" />
+
+        <TextView
+            android:id="@+id/forpwd"
+            style="@style/TextViewStyle"
+            android:gravity="center"
+            android:text="@string/forgot_password"
+            android:textColor="@color/colorPrimary"
+            android:textSize="15sp"
+            android:layout_marginBottom="10dp"
+            android:onClick="forgotPassword"
+            tools:ignore="OnClick" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+
+            >
+
+        <Button
+           style="@style/ButtonStyle"
+            android:layout_height="40dp"
+            android:layout_width="wrap_content"
+            android:text="CREATE NEW ACCOUNT"
+            android:paddingLeft="@dimen/app_normal_margin"
+            android:paddingRight="@dimen/app_normal_margin"
+            android:onClick="createAccount"
+            android:textSize="15dp"
+            tools:ignore="OnClick" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

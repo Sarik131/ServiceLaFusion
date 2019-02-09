@@ -15,7 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/layoutToolbar"
-        android:layout_above="@+id/btnSubmit">
+        android:layout_above="@+id/btnCSubmit">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -91,7 +91,7 @@
     </android.support.v4.widget.NestedScrollView>
 
     <Button
-        android:id="@+id/btnSubmit"
+        android:id="@+id/btnCSubmit"
         style="@style/ButtonStyle"
         android:layout_alignParentBottom="true"
         android:layout_margin="@dimen/app_normal_margin"

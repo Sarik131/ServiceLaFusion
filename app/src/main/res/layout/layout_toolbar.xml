@@ -1,29 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/colorPrimary">
-
-<TextView
-    android:id="@+id/tvLogoName"
-    android:layout_width="match_parent"
+    android:id="@+id/headerlayout"
     android:layout_height="wrap_content"
-    android:layout_centerVertical="true"
-    android:layout_toRightOf="@id/ivLogo"
-    android:text="@string/app_name"
-    android:textColor="@color/colorBackgroundWhite"
-    android:textSize="35dp" />
+    android:background="@color/colorPrimary"
+    android:orientation="horizontal"
+    android:gravity="center"
+    android:padding="@dimen/app_normal_margin"
+    >
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+       >
 
-<ImageView
-    android:id="@+id/ivLogo"
-    android:layout_width="66dp"
-    android:layout_height="75dp"
-    android:layout_alignParentStart="true"
-    android:layout_centerVertical="true"
-    android:contentDescription="@string/todo"
-    app:srcCompat="@drawable/logo1" />
+        <ImageView
+            android:layout_width="69dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/wf1"
 
+            />
 
-</RelativeLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/architects_daughter"
+            android:padding="5dp"
+            android:text="@string/app_name"
+            android:textColor="@color/colorBackgroundWhite"
+            android:textSize="30sp" />
+    </LinearLayout>
+
+</android.support.v7.widget.Toolbar>

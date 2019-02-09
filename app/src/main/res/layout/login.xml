@@ -30,13 +30,13 @@
         android:orientation="vertical">
 
         <EditText
-            android:id="@+id/edtEmail"
+            android:id="@+id/edtSpEmail"
             style="@style/EditTextStyle"
             android:layout_marginBottom="@dimen/app_small_margin"
             android:hint="@string/enter_email_id" />
 
         <EditText
-            android:id="@+id/edtPassword"
+            android:id="@+id/edtSpPassword"
             style="@style/EditTextStyle"
             android:hint="@string/password" />
 

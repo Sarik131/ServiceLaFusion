@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="10"
+    android:orientation="vertical">
+
+
+
+    <include layout="@layout/layout_toolbar"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="20dp">
+
+
+        <EditText
+            android:id="@+id/edtSpName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/EditTextStyle"
+            android:layout_marginTop="@dimen/app_normal_margin"
+            android:hint="@string/name" />
+
+        <EditText
+            android:id="@+id/edtSpEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/EditTextStyle"
+            android:hint="@string/email" />
+
+        <EditText
+            android:id="@+id/edtSpPhoneNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/EditTextStyle"
+            android:hint="@string/phone_number" />
+
+
+
+        <EditText
+           style="@style/EditTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/edtSpPassword"
+            android:hint="@string/password" />
+
+        <EditText
+            style="@style/EditTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/edtSpRenterPass"
+            android:hint="@string/retype_password"/>
+
+        <EditText
+            style="@style/EditTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/edtSpExperience"
+            android:hint="@string/experience"/>
+
+        <Spinner
+            android:id="@+id/spSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="@dimen/app_small_margin"
+            android:layout_marginLeft="@dimen/app_normal_margin"
+            android:layout_marginRight="@dimen/app_normal_margin"
+            android:layout_marginBottom="@dimen/app_small_margin"
+            android:autofillHints="Select Category" />
+
+            <Button
+                android:id="@+id/btnSpSubmit"
+               style="@style/ButtonStyle"
+                android:onClick="onSubmit"
+                android:textColor="@color/colorBackgroundWhite"
+                android:text="@string/submit"
+                android:layout_marginTop="10dp"
+                />
+
+    </LinearLayout>
+    </LinearLayout>

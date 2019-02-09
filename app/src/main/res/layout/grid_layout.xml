@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/box"
+
+    android:padding="5dp">
+
+    <ImageView
+        android:id="@+id/ivGridlayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/plumber_pic"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        android:padding="13dp"
+
+
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Plumber"
+        android:textColor="@color/colorPrimary"
+        android:textAlignment="center"
+        android:textSize="10dp"
+        android:id="@+id/tvGridlayout"/>
+
+</LinearLayout>

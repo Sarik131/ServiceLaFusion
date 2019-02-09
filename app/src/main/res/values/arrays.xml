@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="selectcategory">
+        <item>carpenter</item>
+        <item>plumber</item>
+        <item>painter</item>
+        <item>electrician</item>
+    </string-array>
+
+</resources>

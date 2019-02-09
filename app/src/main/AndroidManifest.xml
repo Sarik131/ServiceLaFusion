@@ -52,8 +52,22 @@
             android:name=".ProfileActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ARactivity"
+            android:name=".Cust_Registration"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".SpregisterrActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Homepage"
+            android:theme="@style/AppThemeNew"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Start"
+            android:screenOrientation="portrait" />
+        <!--<activity-->
+            <!--android:name=".ARactivity"-->
+            <!--android:screenOrientation="portrait" />-->
+
         <activity
             android:name=".SpListActivity"
             android:screenOrientation="portrait" />
