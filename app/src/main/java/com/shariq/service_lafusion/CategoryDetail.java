@@ -29,7 +29,7 @@ public class CategoryDetail extends AppCompatActivity {
         String cname=getIntent().getStringExtra("Carpenter");
         tvcategory.setText(cname);
 
-
+//initialization
         recyclerView = (RecyclerView) findViewById(R.id.spListRecyclerView);
         LinearLayoutManager linearLayoutManager=new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
