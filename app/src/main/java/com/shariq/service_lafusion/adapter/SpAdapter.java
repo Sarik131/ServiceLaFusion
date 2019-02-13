@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.shariq.service_lafusion.GridAdapter;
+
 import com.shariq.service_lafusion.R;
 
 public class SpAdapter extends RecyclerView.Adapter<SpAdapter.MyHolder> {
