@@ -4,13 +4,25 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 
 import com.shariq.service_lafusion.R;
+import com.shariq.service_lafusion.model.Category;
 
-public class SpAdapter extends RecyclerView.Adapter<SpAdapter.MyHolder> {
+import java.util.ArrayList;
+import java.util.List;
+
+public class SpAdapter extends RecyclerView.Adapter<SpAdapter.MyHolder>  {
+    private ArrayList<Category> splist=new ArrayList<>();
+
+    private Filter exampleFilter;
+
+
+
     @Override
     public MyHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View layout = LayoutInflater.from(parent.getContext()).inflate(R.layout.grid_layout, parent, false);
@@ -27,8 +39,13 @@ public class SpAdapter extends RecyclerView.Adapter<SpAdapter.MyHolder> {
 
     @Override
     public int getItemCount() {
-        return 0;
+        return splist.size();
     }
+
+
+
+
+
 
     public class MyHolder extends RecyclerView.ViewHolder {
         ImageView imageView;

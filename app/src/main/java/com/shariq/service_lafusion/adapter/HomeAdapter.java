@@ -46,7 +46,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Category category = mData.get(holder.getAdapterPosition());
         holder.myTextView.setText(category.getName());
-        holder.mImageView.setImageResource(category.getImageId());
+    //    holder.mImageView.setImageResource(category.getImageId());
 
     }
 

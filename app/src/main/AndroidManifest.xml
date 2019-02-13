@@ -71,9 +71,6 @@
             android:name=".CategoryDetail"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".SpListActivity"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".QueryScreenActivity"
             android:screenOrientation="portrait" />
         <activity

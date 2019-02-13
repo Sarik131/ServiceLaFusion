@@ -19,7 +19,7 @@ import android.view.View;
 import android.widget.GridView;
 
 
-
+import com.shariq.service_lafusion.adapter.GridAdapter;
 import com.shariq.service_lafusion.model.Category;
 
 import java.util.ArrayList;
@@ -27,12 +27,12 @@ import java.util.ArrayList;
 public class Homepage extends AppCompatActivity {
     private DrawerLayout drawerLayout;
     public GridView gridView;
-    GridAdapter adapter;
+    GridAdapter gridAdapter;
     private ArrayList<Category> data;
     RecyclerView recyclerView;
     GridLayoutManager layoutManager;
 
-
+ /*
     String[] vlaues = {
             "Carpenter",
             "Painter",
@@ -62,7 +62,7 @@ public class Homepage extends AppCompatActivity {
             R.drawable.icparlour,
             R.drawable.icgardener,
             R.drawable.icastrologer,
-            R.drawable.icplumber};
+            R.drawable.icplumber};*/
 
 
     @Override
@@ -73,7 +73,7 @@ public class Homepage extends AppCompatActivity {
         setSupportActionBar(toolbar);
         drawerLayout = findViewById(R.id.drawer_layout);
 
-       /* data = new ArrayList<>();
+        data = new ArrayList<>();
         data.add(new Category(R.drawable.iccarpenter, "Carpenter"));
         data.add(new Category(R.drawable.icpainter, "Painter"));
         data.add(new Category(R.drawable.iccleaning, "Cleaning"));
@@ -87,7 +87,7 @@ public class Homepage extends AppCompatActivity {
         data.add(new Category(R.drawable.icparlour, "BeautyParlour"));
         data.add(new Category(R.drawable.icgardener, "Gardener"));
         data.add(new Category(R.drawable.icastrologer, "Astrologer"));
-        data.add(new Category(R.drawable.icplumber, "Plumber"));*/
+        data.add(new Category(R.drawable.icplumber, "Plumber"));
 
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar,
@@ -100,19 +100,23 @@ public class Homepage extends AppCompatActivity {
         layoutManager = new GridLayoutManager(Homepage.this, 3);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(layoutManager);
-         adapter = new GridAdapter(this, vlaues, images,data);
-        recyclerView.setAdapter(adapter);
+        gridAdapter = new GridAdapter(data);
+        recyclerView.setAdapter(gridAdapter);
     }
-/*
+    public void createQuery(View view) {
+        Intent intent = new Intent(Homepage.this, CreateQueryActivity.class);
+        startActivity(intent);
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.search,menu);
+        inflater.inflate(R.menu.search, menu);
 
-        MenuItem menuItem=menu.findItem(R.id.search);
-//        SearchView searchView=(SearchView)menuItem.getActionView();
+        MenuItem menuItem = menu.findItem(R.id.menuSearch);
+        SearchView searchView = (SearchView) menuItem.getActionView();
 
-     //   searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
                 return false;
@@ -126,7 +130,7 @@ public class Homepage extends AppCompatActivity {
         });
         return true;
 
-    }*/
+    }
 
     @Override
     public void onBackPressed() {
@@ -135,58 +139,7 @@ public class Homepage extends AppCompatActivity {
         } else {
             super.onBackPressed();
 
-        }
-    }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-  MenuInflater menuInflater=getMenuInflater();
-  menuInflater.inflate(R.menu.search,menu);
-  MenuItem searchItem=menu.findItem(R.id.menuSearch);
-  SearchView searchView=(SearchView)searchItem.getActionView();
-
-  searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-      @Override
-      public boolean onQueryTextSubmit(String query) {
-          return false;
-      }
-
-      @Override
-      public boolean onQueryTextChange(String newText) {
-          adapter.getFilter().filter(newText);
-          return false;
-      }
-  });
-
-   /*     SearchManager searchManager=(SearchManager)Homepage.this.getSystemService(Context.SEARCH_SERVICE);
-        SearchView searchManager1=null;
-        if(searchItem != null)
-        {
-            searchManager1=(SearchView)searchItem.getActionView();
-
-        }
-        if(searchManager1 != null)
-        {
-            searchManager1.setSearchableInfo(searchManager.getSearchableInfo(Homepage.this.getComponentName()));
-
-        }*/
-
-  return  true;
-   }
-
-   /* @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId())
-        {
-            case R.id.search;
-
-                 break;
-        }return  true;
-    }
-*/
-
-   public void createQuery(View view) {
-        Intent intent = new Intent(Homepage.this, CreateQueryActivity.class);
-        startActivity(intent);
+            }
     }
 }
