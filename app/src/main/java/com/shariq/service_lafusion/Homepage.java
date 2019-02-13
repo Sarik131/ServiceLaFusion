@@ -1,5 +1,7 @@
 package com.shariq.service_lafusion;
 
+import android.app.SearchManager;
+import android.content.Context;
 import android.content.Intent;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -8,9 +10,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.GridView;
+
 
 
 import com.shariq.service_lafusion.model.Category;
@@ -26,8 +33,21 @@ public class Homepage extends AppCompatActivity {
     GridLayoutManager layoutManager;
 
 
-
-    String[] vlaues = {"Carpenter", "Painter", "Cleaning", "Applicances", "Electrician", "Packers", "Photographer", "EventManagement ", "FitnessTrainer", "PestController", "BeautyParlour", "Gardener", "Astrologer", "Plumber"};
+    String[] vlaues = {
+            "Carpenter",
+            "Painter",
+            "Cleaning",
+            "Applicances",
+            "Electrician",
+            "Movers & Packers",
+            "Photographer",
+            "EventManagement ",
+            "FitnessTrainer",
+            "PestController",
+            "BeautyParlour",
+            "Gardener",
+            "Astrologer",
+            "Plumber"};
     int[] images = {
             R.drawable.iccarpenter,
             R.drawable.icpainter,
@@ -80,8 +100,8 @@ public class Homepage extends AppCompatActivity {
         layoutManager = new GridLayoutManager(Homepage.this, 3);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(layoutManager);
-        GridAdapter gridAdapter=new GridAdapter(this,vlaues,images);
-        recyclerView.setAdapter(gridAdapter);
+         adapter = new GridAdapter(this, vlaues, images,data);
+        recyclerView.setAdapter(adapter);
     }
 /*
     @Override
@@ -118,7 +138,54 @@ public class Homepage extends AppCompatActivity {
         }
     }
 
-    public void createQuery(View view) {
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+  MenuInflater menuInflater=getMenuInflater();
+  menuInflater.inflate(R.menu.search,menu);
+  MenuItem searchItem=menu.findItem(R.id.menuSearch);
+  SearchView searchView=(SearchView)searchItem.getActionView();
+
+  searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+      @Override
+      public boolean onQueryTextSubmit(String query) {
+          return false;
+      }
+
+      @Override
+      public boolean onQueryTextChange(String newText) {
+          adapter.getFilter().filter(newText);
+          return false;
+      }
+  });
+
+   /*     SearchManager searchManager=(SearchManager)Homepage.this.getSystemService(Context.SEARCH_SERVICE);
+        SearchView searchManager1=null;
+        if(searchItem != null)
+        {
+            searchManager1=(SearchView)searchItem.getActionView();
+
+        }
+        if(searchManager1 != null)
+        {
+            searchManager1.setSearchableInfo(searchManager.getSearchableInfo(Homepage.this.getComponentName()));
+
+        }*/
+
+  return  true;
+   }
+
+   /* @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId())
+        {
+            case R.id.search;
+
+                 break;
+        }return  true;
+    }
+*/
+
+   public void createQuery(View view) {
         Intent intent = new Intent(Homepage.this, CreateQueryActivity.class);
         startActivity(intent);
     }

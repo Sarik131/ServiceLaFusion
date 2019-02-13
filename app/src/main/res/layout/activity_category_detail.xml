@@ -7,39 +7,28 @@
     tools:context=".CategoryDetail"
     android:orientation="vertical">
 
-    <ImageView
-        android:id="@+id/ivCategoryImage"
-        android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:src="@drawable/parlour_pic"
-        android:padding="10dp"
-        android:background="@drawable/box"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
-        android:layout_marginTop="5dp"/>
+
     <TextView
         android:id="@+id/tvcategoryName"
         style="@style/TextViewStyle"
         android:text="Beauty Parlour"
         android:textAlignment="center"
         android:layout_marginTop="10dp"
-        android:textSize="30dp"
+        android:textSize="15dp"
         android:textStyle="bold"
+        android:layout_marginBottom="@dimen/app_normal_margin"
         android:textColor="@color/colorPrimary"
        />
 
-    <TextView
-        android:id="@+id/tvCategoryDescription"
-        style="@style/TextViewStyle"
-        android:layout_marginTop="@dimen/app_normal_margin"
-        android:lines="9"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"/>
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:id="@+id/spListRecyclerView"
+        android:layout_height="wrap_content"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp">
 
-    <Button
-        style="@style/ButtonStyle"
-        android:text="SELECT LIST"
 
-        />
+    </android.support.v7.widget.RecyclerView>
+
 
 </LinearLayout>

@@ -4,46 +4,34 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.ImageView;
 
 //implements HomeAdapter.ItemClickListener
 public class MainActivity extends AppCompatActivity  {
 //    HomeAdapter adapter;
 //    private ArrayList<Category> data;
-//
-//    Handler handler;
-//
-//    @Override
-//    public void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//
-//        setContentView(R.layout.activity_main);
-//        handler=new Handler();
-//        handler.postDelayed(new Runnable() {
-//            @Override
-//            public void run() {
-//                Intent intent = new Intent(MainActivity.this,CRegisterActivity.class);
-//                startActivity(intent);
-//                finish();
-//            }
-//        },3000);
-private  static int Splash_time_out=1000;
+
+    Handler handler;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
 
-        new Handler().postDelayed(new Runnable() {
+        handler=new Handler();
+        handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent homeIntent = new Intent(MainActivity.this,Start.class);
-                startActivity(homeIntent);
+                Intent intent = new Intent(MainActivity.this,Start.class);
+                startActivity(intent);
                 finish();
             }
-        },Splash_time_out);
+        },3000);
 
 
-       /* Intent intent = new Intent(this, HomeActivity.class);
+      /*  Intent intent = new Intent(this, HomeActivity.class);
         startActivity(intent);*/
 
 

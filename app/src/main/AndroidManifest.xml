@@ -59,15 +59,17 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".Homepage"
-            android:theme="@style/AppThemeNew"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeNew" />
         <activity
             android:name=".Start"
             android:screenOrientation="portrait" />
         <!--<activity-->
-            <!--android:name=".ARactivity"-->
-            <!--android:screenOrientation="portrait" />-->
-
+        <!--android:name=".ARactivity"-->
+        <!--android:screenOrientation="portrait" />-->
+        <activity
+            android:name=".CategoryDetail"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".SpListActivity"
             android:screenOrientation="portrait" />
@@ -83,6 +85,10 @@
         <activity
             android:name=".HistoryActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".CreateQueryActivity"
+            android:screenOrientation="portrait" />
+
         <activity
             android:name=".ForgotPasswordActivity"
             android:screenOrientation="portrait" />

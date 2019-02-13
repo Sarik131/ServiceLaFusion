@@ -1,99 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <include layout="@layout/layout_toolbar"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
+    <include
         android:id="@+id/layoutToolbar"
-        android:layout_alignParentTop="true"/>
-
-    <android.support.v4.widget.NestedScrollView
+        layout="@layout/layout_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/layoutToolbar"
-        android:layout_above="@+id/btnCSubmit">
+        android:layout_alignParentTop="true" />
+
+    <TextView
+        android:id="@+id/tvDescription"
+        style="@style/TextViewStyle"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/description"
+        android:textAlignment="viewStart"
+        android:textSize="20dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="2dp"
+        android:background="@drawable/box"
+        android:orientation="vertical"
+        android:gravity="center">
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:weightSum="10"
-            tools:context=".CreateQueryActivity">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/app_normal_margin"
+            android:layout_marginTop="@dimen/app_normal_margin"
+            android:background="#d3d3d3"
+            android:gravity="center"
+            android:orientation="horizontal">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_marginTop="@dimen/app_normal_margin"
-                android:layout_weight="8"
-                android:orientation="vertical">
-
-                <EditText
-                    android:id="@+id/edtSearch"
-                    style="@style/EditTextStyle"
-                    android:hint="@string/search"
-                    />
-
-                <TextView
-                    android:id="@+id/tvDescription"
-                    style="@style/TextViewStyle"
-                    android:layout_marginTop="@dimen/app_normal_margin"
-                    android:text="@string/description"
-                    android:textAlignment="center"
-                    android:textSize="20dp" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/app_normal_margin"
-                    android:layout_marginTop="@dimen/app_normal_margin"
-                    android:gravity="center"
-                    android:orientation="horizontal"
-                    android:weightSum="2">
-
-                    <ImageView
-                        android:id="@+id/ivQPhoto1"
-                        android:layout_width="0dp"
-                        android:layout_height="100dp"
-                        android:layout_marginRight="@dimen/app_normal_margin"
-                        android:layout_weight="1"
-                        android:background="@color/colorPrimary"
-                        android:padding="10dp"
-                        app:srcCompat="@drawable/ic_qphoto1" />
-
-                    <ImageView
-                        android:id="@+id/ivQPhoto2"
-                        android:layout_width="0dp"
-                        android:layout_height="100dp"
-                        android:layout_marginLeft="@dimen/app_normal_margin"
-                        android:layout_weight="1"
-                        android:background="@color/colorPrimary"
-                        android:padding="10dp"
-                        app:srcCompat="@drawable/ic_qphoto1" />
-
-                </LinearLayout>
-
-                <EditText
-                    style="@style/EditTextStyle"
-                    android:gravity="left|top"
-                    android:hint="@string/writedesrciption"
-                    android:lines="4" />
-                <android.support.v7.widget.RecycleView>
-
-
-                </android.support.v7.widget.RecycleView>
-            </LinearLayout>
-
+            <ImageView
+                android:id="@+id/ivCqPhoto1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                app:srcCompat="@drawable/cq_camera"
+                android:layout_gravity="center"/>
         </LinearLayout>
-    </android.support.v4.widget.NestedScrollView>
+
+        <EditText
+            android:id="@+id/edtCqWriteHere"
+            style="@style/EditTextStyle"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/box"
+            android:gravity="left|top"
+            android:hint="@string/writedesrciption"
+            android:lines="4"
+            android:padding="5dp" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/cqRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginLeft="@dimen/app_normal_margin"
+            android:layout_marginRight="@dimen/app_normal_margin"
+            android:background="@drawable/box"
+            android:padding="5dp">
+
+        </android.support.v7.widget.RecyclerView>
+    </LinearLayout>
+
 
     <Button
-        android:id="@+id/btnCSubmit"
+        android:id="@+id/btnCqSubmit"
         style="@style/ButtonStyle"
-        android:layout_alignParentBottom="true"
+        android:onClick="clickIt"
         android:layout_margin="@dimen/app_normal_margin"
+        android:layout_alignParentBottom="true"
         android:text="@string/submit" />
-</RelativeLayout>
+
+</LinearLayout>

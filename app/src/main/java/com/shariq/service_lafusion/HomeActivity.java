@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.Menu;
 import android.view.View;
 
 import com.shariq.service_lafusion.adapter.HomeAdapter;
@@ -60,6 +61,11 @@ public class HomeActivity extends AppCompatActivity implements HomeAdapter.ItemC
     public void onItemClick(int position) {
         Log.i("TAG", "You clicked number , which is at cell position " + position);
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        return super.onCreateOptionsMenu(menu);
     }
 
     public void onClick(View view)

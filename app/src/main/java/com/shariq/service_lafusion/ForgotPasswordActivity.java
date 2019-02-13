@@ -15,7 +15,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
     public  void  home(View view)
 
     {
-        Intent intent = new Intent(ForgotPasswordActivity.this,Homepage.class);
+        Intent intent = new Intent(ForgotPasswordActivity.this,CreateQueryActivity.class);
         startActivity(intent);
     }
 

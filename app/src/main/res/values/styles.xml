@@ -5,7 +5,7 @@
     <style parent="Theme.AppCompat.Light.NoActionBar" name="AppTheme">
         <!-- Customize your theme here. -->
 
-        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimary">#13595e</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:colorBackground">@color/colorBackgroundWhite</item>
@@ -15,14 +15,14 @@
     <style parent="Theme.AppCompat.NoActionBar" name="AppThemeNew">
         <!-- Customize your theme here. -->
 
-        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimary">#13595E</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:colorBackground">@color/colorBackgroundWhite</item>
         <item name="android:windowBackground">@color/colorBackgroundWhite</item>
     </style>
     <style parent="Theme.AppCompat.Light.DarkActionBar" name="Actionbar">
-        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimary">#13595E</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
 

@@ -7,7 +7,9 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:weightSum="10"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+
+   >
 
     <include layout="@layout/layout_toolbar" />
 
@@ -16,6 +18,7 @@
         android:layout_height="match_parent"
         android:layout_weight="9"
         android:gravity="center"
+
         android:orientation="vertical">
 
 
@@ -23,7 +26,8 @@
             android:id="@+id/edtSpEmail"
             style="@style/EditTextStyle"
             android:layout_marginBottom="@dimen/app_small_margin"
-            android:hint="@string/enter_email_id" />
+            android:hint="@string/enter_email_id"
+           />
 
         <EditText
             android:id="@+id/edtSpPassword"
@@ -36,6 +40,7 @@
                 android:id="@+id/btnLogin"
                 style="@style/ButtonStyle"
                 android:onClick="onLogin"
+
                 android:text="@string/login"
                 tools:ignore="OnClick" />
 

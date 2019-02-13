@@ -6,6 +6,7 @@ public class SpList {
     private int stars;
     private int amount;
 
+
     public int getAmount() {
         return amount;
     }

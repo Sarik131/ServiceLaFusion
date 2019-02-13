@@ -3,17 +3,25 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="8dp"
+    tools:context=".SpListActivity"
+    android:background="#f1f8e9">
 
-    tools:context=".SpListActivity">
-<android.support.v7.widget.RecyclerView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:id="@+id/rvSpList">
+    <TextView
+        android:id="@+id/tvSpName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="SP NAME HERE"
+        android:textSize="12dp" />
 
-
-</android.support.v7.widget.RecyclerView>
-
+    <TextView
+        android:id="@+id/tvSpExp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Experience"
+        android:textSize="10dp" />
 
 
 </LinearLayout>

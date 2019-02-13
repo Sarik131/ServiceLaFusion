@@ -78,7 +78,7 @@
     <string name="submit">Submit</string>
     <string name="experience">Experience</string>
     <string name="retype_password">Retype Password</string>
-    <string name="category"></string>
+    <string name="category">Category</string>
 
 
     <!--Profile -->
@@ -102,7 +102,7 @@
 
     <!---Create Query-->
 
-    <string name="description">Description</string>
+    <string name="description">Description :</string>
     <string name="writedesrciption">Write Here</string>
     <string name="plumbing">plumbing</string>
     <string name="appliances">appliances</string>
