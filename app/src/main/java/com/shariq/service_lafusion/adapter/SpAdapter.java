@@ -21,8 +21,8 @@ public class SpAdapter extends RecyclerView.Adapter<SpAdapter.MyHolder> {
 
     @Override
     public void onBindViewHolder(MyHolder holder, int position) {
-  holder.textView.setText();
-  holder.textView.setText();
+ // holder.textView.setText();
+ // holder.textView.setText();
     }
 
     @Override
