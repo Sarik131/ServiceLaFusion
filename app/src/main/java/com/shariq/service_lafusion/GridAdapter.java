@@ -17,8 +17,7 @@ import com.shariq.service_lafusion.model.Category;
 import java.util.ArrayList;
 import java.util.List;
 
-
-public class GridAdapter extends RecyclerView.Adapter<GridAdapter.Myholder> implements Filterable {
+/*public class GridAdapter extends RecyclerView.Adapter<GridAdapter.Myholder> implements Filterable {
     private ArrayList<Category> splist=new ArrayList<>();
     ArrayList<Category> splistfull=new ArrayList<>();
     Context context;
@@ -70,7 +69,7 @@ public class GridAdapter extends RecyclerView.Adapter<GridAdapter.Myholder> impl
         return new Myholder(layout);
     }
 
-    @Override
+ /*  @Override
     public void onBindViewHolder(Myholder holder, final int position) {
 
         holder.imageView.setImageResource(images[position]);
@@ -92,7 +91,7 @@ public class GridAdapter extends RecyclerView.Adapter<GridAdapter.Myholder> impl
 
             }
         });
-    }
+    } */
 
     @Override
     public int getItemCount() {
@@ -131,5 +130,5 @@ public class GridAdapter extends RecyclerView.Adapter<GridAdapter.Myholder> impl
             notifyDataSetChanged();
         }
     };
-
+*/
 }
