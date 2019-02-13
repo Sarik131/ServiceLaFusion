@@ -1,7 +1,9 @@
 package com.shariq.service_lafusion;
 
 import com.google.gson.JsonElement;
+import com.shariq.service_lafusion.model.SpList;
 
+import java.util.List;
 import java.util.Map;
 
 import retrofit2.Call;
@@ -27,6 +29,11 @@ public interface APIManager {
     @FormUrlEncoded
     @POST(Constant.URL_GET_DETAIL)
     Call<Map<String, Object>> getDetails(@FieldMap Map<String, String> params);
+
+    @FormUrlEncoded
+    @POST(Constant.URL_GET_SP_LIST)
+    Call<Map<String, Object>> getSpList(@FieldMap Map<String, String> params);
+
 
 
     // Add all your api calls here...

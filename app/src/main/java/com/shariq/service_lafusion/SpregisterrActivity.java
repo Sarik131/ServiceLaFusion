@@ -35,13 +35,14 @@ public  class SpregisterrActivity extends AppCompatActivity  {
     EditText edtSpPhoneNumber;
     EditText edtSpPassword;
     EditText edtSpExperience;
-    //Spinner spSpinner;
+   // Spinner spSpinner;
 
+    Spinner spinner;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sp_register_activity);
-        Spinner spinner =findViewById(R.id.spSpinner);
+        spinner =findViewById(R.id.spSpinner);
         ArrayAdapter<CharSequence> adapter =ArrayAdapter.createFromResource(this,R.array.category,android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
@@ -51,7 +52,7 @@ public  class SpregisterrActivity extends AppCompatActivity  {
         edtSpEmail=(EditText) findViewById(R.id.edtSpEmail);
         edtSpPhoneNumber=(EditText) findViewById(R.id.edtSpPhoneNumber);
         edtSpExperience=(EditText) findViewById(R.id.edtSpExperience);
-        //spSpinner=(Spinner) findViewById(R.id.spSpinner);
+       // spSpinner=(Spinner) findViewById(R.id.spSpinner);
 
     }
     public void onSubmit(View view)
@@ -69,7 +70,7 @@ public  class SpregisterrActivity extends AppCompatActivity  {
         params.put("email", edtSpEmail.getText().toString());
         params.put("phoneno", edtSpPhoneNumber.getText().toString());
         params.put("experience", edtSpExperience.getText().toString());
-        //params.put("category", spSpinner.getTransitionName().toString());
+        params.put("category", spinner.getSelectedItem().toString());
 
         //Toast.makeText(CRegisterActivity.this, edtName.getText().toString(), Toast.LENGTH_SHORT).show();
 

@@ -11,6 +11,7 @@ public class CategoryDetail extends AppCompatActivity {
  private ImageView imageView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_category_detail);
         tvcategory=(TextView)findViewById(R.id.tvcategoryName);
@@ -20,5 +21,6 @@ public class CategoryDetail extends AppCompatActivity {
         String cname=getIntent().getStringExtra("Carpenter");
         Log.d("here","is :"+cname);
         tvcategory.setText(cname);
+
     }
 }
