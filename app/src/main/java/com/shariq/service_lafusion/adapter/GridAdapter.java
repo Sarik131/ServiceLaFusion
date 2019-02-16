@@ -53,7 +53,7 @@ public class GridAdapter extends RecyclerView.Adapter<GridAdapter.Myholder>imple
        });
 
     }
-
+//kite
     @Override
     public int getItemCount() {
         return splist.size();
