@@ -2,8 +2,10 @@ package com.shariq.service_lafusion.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.IntRange;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,6 +32,7 @@ public class GridAdapter extends RecyclerView.Adapter<GridAdapter.Myholder>imple
     public GridAdapter(Context context,ArrayList<Category> splist) {
         this.splist = splist;
         splistfull=splist;
+        this.context=context;
     }
 
     @Override
@@ -49,8 +52,16 @@ public class GridAdapter extends RecyclerView.Adapter<GridAdapter.Myholder>imple
            public void onClick(View v) {
               try {
                   Intent intent = new Intent();
-                  //intent.putExtra("name", category.getName());
+                  String val= category.getName();
+                  Bundle bundle = new Bundle();
+                  bundle.putString("catName",category.getName().toString());
+
+                  intent.putExtras(bundle);
+
+                  intent.putExtra("categoryName",val);
+                  Log.d("message","inOnclick"+val);
                   intent = new Intent(context, CategoryDetail.class);
+                  Log.d("message","After intent call");
                  context.startActivity(intent);
               }catch(Exception e)
               {

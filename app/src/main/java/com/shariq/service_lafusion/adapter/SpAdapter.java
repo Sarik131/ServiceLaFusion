@@ -31,7 +31,6 @@ public class SpAdapter extends RecyclerView.Adapter<SpAdapter.MyHolder>  {
 
     public SpAdapter(ArrayList<SpDetail> splist) {
         this.splist = splist;
-
     }
 
     @Override

@@ -41,17 +41,32 @@ public class CategoryDetail extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_category_detail);
-        String cName=getIntent().getStringExtra("name");
+        //String cData=getIntent().getStringExtra("categoryName");
 
+
+        Bundle extras = getIntent().getExtras();
+        String cData="";
+        if (extras != null) {
+            cData = extras.getString("catName");
+        }
+
+        Log.d("cData","category :- "+cData);
+        // cname = getIntent().getStringExtra("Carpenter");
+
+
+
+        String cname="";
+        if (extras != null) {
+            cname = extras.getString("Carpenter");
+        }
+        Log.d("cData","Why nothing is coming :"+cname);
         tvcategory = (TextView) findViewById(R.id.tvcategoryName);
-
-        String cname = getIntent().getStringExtra("Carpenter");
         tvcategory.setText(cname);
-
+        Log.d("cData","wtf small"+cname);
         recyclerView = (RecyclerView) findViewById(R.id.spListRecyclerView);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
-        adapter = new SpAdapter(getList(cname));
+        adapter = new SpAdapter(getList(cData));
         System.out.print("Batman");
         Log.d("Batman","I am rich!!!");
         recyclerView.setAdapter(adapter);
@@ -74,6 +89,8 @@ public class CategoryDetail extends AppCompatActivity {
 
     public ArrayList<SpDetail> getList(String name) {
         String category=name;
+        Log.d("getList","karte rehhhh"+category);
+
 //
 //        switch (pos) {
 //            case 1:
@@ -214,6 +231,7 @@ public class CategoryDetail extends AppCompatActivity {
             }
         });
         //
+
         return myModelList;
 
     }
