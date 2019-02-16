@@ -12,9 +12,15 @@ import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
+import com.google.gson.reflect.TypeToken;
 import com.shariq.service_lafusion.adapter.SpAdapter;
+import com.shariq.service_lafusion.model.Category;
+import com.shariq.service_lafusion.model.LoginPost;
+import com.shariq.service_lafusion.model.SpDetail;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import retrofit2.Call;
@@ -28,25 +34,27 @@ public class CategoryDetail extends AppCompatActivity {
     RecyclerView recyclerView;
     private TextView tvcategory, tvdesc;
     private ImageView imageView;
+    ArrayList<SpDetail> myModelList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_category_detail);
+        String cName=getIntent().getStringExtra("name");
 
         tvcategory = (TextView) findViewById(R.id.tvcategoryName);
 
         String cname = getIntent().getStringExtra("Carpenter");
         tvcategory.setText(cname);
 
-
-//initialization
         recyclerView = (RecyclerView) findViewById(R.id.spListRecyclerView);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
-        adapter = new SpAdapter();
+        adapter = new SpAdapter(getList(cname));
         recyclerView.setAdapter(adapter);
+
+//initialization
 
 /*
 <<<<<<< Updated upstream
@@ -60,72 +68,73 @@ public class CategoryDetail extends AppCompatActivity {
     */
     }
 
-    String getName(int pos) {
-        String category="";
-        String name="";
-        switch (pos) {
-            case 1:
-                category = "carpenter";
-                break;
 
-            case 2:
-                category = "painter";
-                break;
 
-            case 3:
-                category = "cleaning";
-                break;
-
-            case 4:
-                category = "appliances";
-                break;
-
-            case 5:
-                category = "electricain";
-                break;
-
-            case 6:
-                category = "pakers";
-                break;
-
-            case 7:
-                category = "carpenter";
-                break;
-
-            case 8:
-                category = "photographer";
-                break;
-
-            case 9:
-                category = "eventmanagement";
-                break;
-
-            case 10:
-                category = "fitnesstrainer";
-                break;
-
-            case 11:
-                category = "pestcontroller";
-                break;
-
-            case 12:
-                category = "parlour";
-                break;
-
-            case 13:
-                category = "gardener";
-                break;
-
-            case 14:
-                category = "astrologer";
-                break;
-
-            case 15:
-                category = "plumber";
-                break;
-
-        }
-        //
+    public ArrayList<SpDetail> getList(String name) {
+        String category=name;
+//
+//        switch (pos) {
+//            case 1:
+//                category = "carpenter";
+//                break;
+//
+//            case 2:
+//                category = "painter";
+//                break;
+//
+//            case 3:
+//                category = "cleaning";
+//                break;
+//
+//            case 4:
+//                category = "appliances";
+//                break;
+//
+//            case 5:
+//                category = "electricain";
+//                break;
+//
+//            case 6:
+//                category = "pakers";
+//                break;
+//
+//            case 7:
+//                category = "carpenter";
+//                break;
+//
+//            case 8:
+//                category = "photographer";
+//                break;
+//
+//            case 9:
+//                category = "eventmanagement";
+//                break;
+//
+//            case 10:
+//                category = "fitnesstrainer";
+//                break;
+//
+//            case 11:
+//                category = "pestcontroller";
+//                break;
+//
+//            case 12:
+//                category = "parlour";
+//                break;
+//
+//            case 13:
+//                category = "gardener";
+//                break;
+//
+//            case 14:
+//                category = "astrologer";
+//                break;
+//
+//            case 15:
+//                category = "plumber";
+//                break;
+//
+//        }
         Retrofit retrofit = new Retrofit.Builder().baseUrl(Constant.BASE_URL).addConverterFactory(GsonConverterFactory.create()).build();
 
         // Sending param
@@ -175,8 +184,10 @@ public class CategoryDetail extends AppCompatActivity {
                         // Convert JsonArray to your custom model class list as follow
 
                         //remaning from here
-//                  ArrayList<LoginPost> myModelList = gson.fromJson(content.get(array_name).getAsJsonArray().toString(),
-//                   	new TypeToken<ArrayList<LoginPost>>(){}.getType());
+                      myModelList= gson.fromJson(content.get("splist").getAsJsonArray().toString(),
+                   	new TypeToken<ArrayList<SpDetail>>(){}.getType());
+
+
                     } else {
                         Toast.makeText(CategoryDetail.this, "No response available.", Toast.LENGTH_SHORT).show();
 
@@ -201,6 +212,7 @@ public class CategoryDetail extends AppCompatActivity {
             }
         });
         //
-        return name;
+        return myModelList;
+
     }
 }

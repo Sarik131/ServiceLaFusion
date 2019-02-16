@@ -1,5 +1,6 @@
 package com.shariq.service_lafusion.adapter;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,18 +11,27 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 
+import com.shariq.service_lafusion.CategoryDetail;
 import com.shariq.service_lafusion.R;
 import com.shariq.service_lafusion.model.Category;
+import com.shariq.service_lafusion.model.SpDetail;
+import com.shariq.service_lafusion.model.SpList;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class SpAdapter extends RecyclerView.Adapter<SpAdapter.MyHolder>  {
-    private ArrayList<Category> splist=new ArrayList<>();
+    private ArrayList<SpDetail> splist=new ArrayList<>();
+    String name[];
+    int experience[];
 
     private Filter exampleFilter;
 
 
+    public SpAdapter(ArrayList<SpDetail> splist) {
+        this.splist = splist;
+
+    }
 
     @Override
     public MyHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -33,8 +43,16 @@ public class SpAdapter extends RecyclerView.Adapter<SpAdapter.MyHolder>  {
 
     @Override
     public void onBindViewHolder(MyHolder holder, int position) {
- // holder.textView.setText();
- // holder.textView.setText();
+
+//        CategoryDetail cd=new CategoryDetail();
+//        ArrayList<Category> data=cd.getList(position);
+//
+//        Category detail=data.get(0);
+//        holder.textView.setText(detail.getName());
+        SpDetail spDetail=splist.get(position);
+        holder.textView.setText(spDetail.getName());
+        holder.textView.setText(spDetail.getExperience());
+
     }
 
     @Override

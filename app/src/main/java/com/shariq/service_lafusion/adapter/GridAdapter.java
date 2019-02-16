@@ -2,6 +2,7 @@ package com.shariq.service_lafusion.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.support.annotation.IntRange;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -38,7 +39,7 @@ public class GridAdapter extends RecyclerView.Adapter<GridAdapter.Myholder>imple
     }
 
     @Override
-    public void onBindViewHolder(Myholder holder, int position) {
+    public void onBindViewHolder(Myholder holder, final int position) {
        final Category category=splist.get(position);
 
        holder.textView.setText(category.getName());
@@ -46,6 +47,8 @@ public class GridAdapter extends RecyclerView.Adapter<GridAdapter.Myholder>imple
        holder.imageView.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
+               Intent intent=new Intent();
+               intent.putExtra("name",category.getName());
 
                Homepage homepage=new Homepage();
                homepage.method(v);
