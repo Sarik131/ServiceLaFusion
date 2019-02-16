@@ -12,7 +12,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.shariq.service_lafusion.CategoryDetail;
+import com.shariq.service_lafusion.Cust_Registration;
+import com.shariq.service_lafusion.Homepage;
 import com.shariq.service_lafusion.R;
+import com.shariq.service_lafusion.SpregisterrActivity;
 import com.shariq.service_lafusion.model.Category;
 
 import java.util.ArrayList;
@@ -43,8 +46,9 @@ public class GridAdapter extends RecyclerView.Adapter<GridAdapter.Myholder>imple
        holder.imageView.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
-               Intent intent=new Intent();
 
+               Homepage homepage=new Homepage();
+               homepage.method(v);
            }
        });
 

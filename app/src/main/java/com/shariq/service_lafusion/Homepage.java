@@ -107,7 +107,10 @@ public class Homepage extends AppCompatActivity {
         Intent intent = new Intent(Homepage.this, CreateQueryActivity.class);
         startActivity(intent);
     }
-
+    public void method(View view){
+        Intent intent = new Intent(this,CategoryDetail.class);
+        startActivity(intent);
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
