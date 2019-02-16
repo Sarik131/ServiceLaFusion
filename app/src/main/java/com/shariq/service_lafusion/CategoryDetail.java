@@ -52,6 +52,8 @@ public class CategoryDetail extends AppCompatActivity {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
         adapter = new SpAdapter(getList(cname));
+        System.out.print("Batman");
+        Log.d("Batman","I am rich!!!");
         recyclerView.setAdapter(adapter);
 
 //initialization

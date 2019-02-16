@@ -100,15 +100,11 @@ public class Homepage extends AppCompatActivity {
         layoutManager = new GridLayoutManager(Homepage.this, 3);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(layoutManager);
-        gridAdapter = new GridAdapter(data);
+        gridAdapter = new GridAdapter(this,data);
         recyclerView.setAdapter(gridAdapter);
     }
     public void createQuery(View view) {
         Intent intent = new Intent(Homepage.this, CreateQueryActivity.class);
-        startActivity(intent);
-    }
-    public void method(View view){
-        Intent intent = new Intent(this,CategoryDetail.class);
         startActivity(intent);
     }
     @Override

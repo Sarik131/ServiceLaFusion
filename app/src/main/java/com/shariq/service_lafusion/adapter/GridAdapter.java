@@ -27,7 +27,7 @@ public class GridAdapter extends RecyclerView.Adapter<GridAdapter.Myholder>imple
     ArrayList<Category>splistfull;
     Context context;
 
-    public GridAdapter(ArrayList<Category> splist) {
+    public GridAdapter(Context context,ArrayList<Category> splist) {
         this.splist = splist;
         splistfull=splist;
     }
@@ -47,11 +47,15 @@ public class GridAdapter extends RecyclerView.Adapter<GridAdapter.Myholder>imple
        holder.imageView.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
-               Intent intent=new Intent();
-               intent.putExtra("name",category.getName());
-
-               Homepage homepage=new Homepage();
-               homepage.method(v);
+              try {
+                  Intent intent = new Intent();
+                  //intent.putExtra("name", category.getName());
+                  intent = new Intent(context, CategoryDetail.class);
+                 context.startActivity(intent);
+              }catch(Exception e)
+              {
+                  System.out.print(e.getMessage());
+              }
            }
        });
 
@@ -97,6 +101,10 @@ public class GridAdapter extends RecyclerView.Adapter<GridAdapter.Myholder>imple
         return getFilter;
     }
 
+
+    public void method(View view){
+
+    }
 
     public class Myholder extends RecyclerView.ViewHolder {
 ImageView imageView;

@@ -2,6 +2,7 @@ package com.shariq.service_lafusion.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,7 +36,7 @@ public class SpAdapter extends RecyclerView.Adapter<SpAdapter.MyHolder>  {
 
     @Override
     public MyHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View layout = LayoutInflater.from(parent.getContext()).inflate(R.layout.grid_layout, parent, false);
+        View layout = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_sp_list, parent, false);
         MyHolder myholder = new MyHolder(layout);
 
         return new MyHolder(layout);
@@ -51,6 +52,7 @@ public class SpAdapter extends RecyclerView.Adapter<SpAdapter.MyHolder>  {
 //        holder.textView.setText(detail.getName());
         SpDetail spDetail=splist.get(position);
         holder.textView.setText(spDetail.getName());
+        Log.d("name","sp naame :  "+spDetail.getName());
         holder.textView.setText(spDetail.getExperience());
 
     }
