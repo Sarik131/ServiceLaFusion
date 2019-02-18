@@ -1,23 +1,21 @@
 package com.shariq.service_lafusion;
 
-import android.app.SearchManager;
-import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.GridView;
-
 
 import com.shariq.service_lafusion.adapter.GridAdapter;
 import com.shariq.service_lafusion.model.Category;
@@ -25,12 +23,12 @@ import com.shariq.service_lafusion.model.Category;
 import java.util.ArrayList;
 
 public class Homepage extends AppCompatActivity {
-    private DrawerLayout drawerLayout;
     public GridView gridView;
     GridAdapter gridAdapter;
-    private ArrayList<Category> data;
     RecyclerView recyclerView;
     GridLayoutManager layoutManager;
+    private DrawerLayout drawerLayout;
+    private ArrayList<Category> data = new ArrayList<>();
 
  /*
     String[] vlaues = {
@@ -63,7 +61,6 @@ public class Homepage extends AppCompatActivity {
             R.drawable.icgardener,
             R.drawable.icastrologer,
             R.drawable.icplumber};*/
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -100,13 +97,15 @@ public class Homepage extends AppCompatActivity {
         layoutManager = new GridLayoutManager(Homepage.this, 3);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(layoutManager);
-        gridAdapter = new GridAdapter(this,data);
+        gridAdapter = new GridAdapter(this, data);
         recyclerView.setAdapter(gridAdapter);
     }
+
     public void createQuery(View view) {
         Intent intent = new Intent(Homepage.this, CreateQueryActivity.class);
         startActivity(intent);
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -123,10 +122,17 @@ public class Homepage extends AppCompatActivity {
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                gridAdapter.getFilter().filter(newText);
+                if (newText == null || newText.isEmpty()) {
+                    gridAdapter = new GridAdapter(Homepage.this, data);
+                    recyclerView.setAdapter(gridAdapter);
+                } else {
+                    gridAdapter.getFilter().filter(newText);
+                }
+
                 return false;
             }
         });
+
         return true;
 
     }
@@ -139,6 +145,6 @@ public class Homepage extends AppCompatActivity {
             super.onBackPressed();
 
 
-            }
+        }
     }
 }

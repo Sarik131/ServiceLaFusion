@@ -43,26 +43,26 @@ public class CategoryDetail extends AppCompatActivity {
         setContentView(R.layout.activity_category_detail);
         //String cData=getIntent().getStringExtra("categoryName");
 
-
-        Bundle extras = getIntent().getExtras();
         String cData="";
-        if (extras != null) {
-            cData = extras.getString("catName");
-        }
+        cData = getIntent().getStringExtra("catName");
+
+//        if (extras != null) {
+//            cData = extras.getString("catName");
+//        }
 
         Log.d("cData","category :- "+cData);
         // cname = getIntent().getStringExtra("Carpenter");
 
 
 
-        String cname="";
-        if (extras != null) {
-            cname = extras.getString("Carpenter");
-        }
-        Log.d("cData","Why nothing is coming :"+cname);
+//        String cname=getIntent().getStringExtra("Carpenter");
+//        if (extras != null) {
+//            cname = extras.getString("Carpenter");
+//        }
+//        Log.d("cData","Why nothing is coming :"+cname);
         tvcategory = (TextView) findViewById(R.id.tvcategoryName);
-        tvcategory.setText(cname);
-        Log.d("cData","wtf small"+cname);
+  //      tvcategory.setText(cname);
+    //    Log.d("cData","wtf small"+cname);
         recyclerView = (RecyclerView) findViewById(R.id.spListRecyclerView);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);

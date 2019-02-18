@@ -25,13 +25,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GridAdapter extends RecyclerView.Adapter<GridAdapter.Myholder>implements Filterable {
-    ArrayList<Category> splist;
-    ArrayList<Category>splistfull;
+    ArrayList<Category> splist = new ArrayList<>();
+    ArrayList<Category>splistfull = new ArrayList<>();
     Context context;
 
     public GridAdapter(Context context,ArrayList<Category> splist) {
-        this.splist = splist;
-        splistfull=splist;
+        this.splist.addAll(splist);
+        splistfull.addAll(splist);
         this.context=context;
     }
 
@@ -51,16 +51,17 @@ public class GridAdapter extends RecyclerView.Adapter<GridAdapter.Myholder>imple
            @Override
            public void onClick(View v) {
               try {
-                  Intent intent = new Intent();
+                  Intent intent = new Intent(context, CategoryDetail.class);
                   String val= category.getName();
-                  Bundle bundle = new Bundle();
-                  bundle.putString("catName",category.getName().toString());
+                  intent.putExtra("catName",category.getName());
 
-                  intent.putExtras(bundle);
+//                  Bundle bundle = new Bundle();
+//                  bundle.putString("catName",category.getName().toString());
 
-                  intent.putExtra("categoryName",val);
+//                  intent.putExtras(bundle);
+
+                  //intent.putExtra("categoryName",val);
                   Log.d("message","inOnclick"+val);
-                  intent = new Intent(context, CategoryDetail.class);
                   Log.d("message","After intent call");
                  context.startActivity(intent);
               }catch(Exception e)
