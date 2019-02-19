@@ -12,8 +12,19 @@ public class Cust_Registration extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cust__registration);
     }
+//    public void onSubmit (View view)
+//    {
+//        Intent intent = new Intent(Cust_Registration.this,ARactivity.class);
+//        startActivity(intent);
+//    }
+
     public void spRegister(View view){
         Intent intent = new Intent(Cust_Registration.this,SpregisterrActivity.class);
+        startActivity(intent);
+    }
+
+    public void cSubmit(View view){
+        Intent intent = new Intent(Cust_Registration.this,ARactivity.class);
         startActivity(intent);
     }
 }

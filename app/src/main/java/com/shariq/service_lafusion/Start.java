@@ -25,6 +25,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class Start extends AppCompatActivity {
     public TextView email;
     public TextView password;
+    public String check;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -88,7 +89,7 @@ public class Start extends AppCompatActivity {
                         JsonObject content = gson.fromJson(jsonString, JsonObject.class);
 
                         // TODO: Read response here
-                        //content.get("email").getAsString();
+                         check =content.get("checkLogin").getAsString();
                         //content.get("password").getAsString();
 
                         // Convert JsonArray to your custom model class list as follow

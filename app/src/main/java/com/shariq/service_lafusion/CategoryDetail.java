@@ -43,16 +43,15 @@ public class CategoryDetail extends AppCompatActivity {
         setContentView(R.layout.activity_category_detail);
         //String cData=getIntent().getStringExtra("categoryName");
 
-        String cData="";
+        String cData = "";
         cData = getIntent().getStringExtra("catName");
 
 //        if (extras != null) {
 //            cData = extras.getString("catName");
 //        }
 
-        Log.d("cData","category :- "+cData);
+        Log.d("cData", "category :- " + cData);
         // cname = getIntent().getStringExtra("Carpenter");
-
 
 
 //        String cname=getIntent().getStringExtra("Carpenter");
@@ -61,14 +60,14 @@ public class CategoryDetail extends AppCompatActivity {
 //        }
 //        Log.d("cData","Why nothing is coming :"+cname);
         tvcategory = (TextView) findViewById(R.id.tvcategoryName);
-  //      tvcategory.setText(cname);
-    //    Log.d("cData","wtf small"+cname);
+        //      tvcategory.setText(cname);
+        //    Log.d("cData","wtf small"+cname);
         recyclerView = (RecyclerView) findViewById(R.id.spListRecyclerView);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
         adapter = new SpAdapter(getList(cData));
         System.out.print("Batman");
-        Log.d("Batman","I am rich!!!");
+        Log.d("Batman", "I am rich!!!");
         recyclerView.setAdapter(adapter);
 
 //initialization
@@ -86,10 +85,9 @@ public class CategoryDetail extends AppCompatActivity {
     }
 
 
-
     public ArrayList<SpDetail> getList(String name) {
-        String category=name;
-        Log.d("getList","karte rehhhh"+category);
+        String category = name;
+        Log.d("getList", "karte rehhhh" + category);
 
 //
 //        switch (pos) {
@@ -179,8 +177,9 @@ public class CategoryDetail extends AppCompatActivity {
                 }
 
                 try {
-                    // Read response as follow
-                    if (response != null && response.body() != null) {
+//                     Read response as follow
+                  if (response != null && response.body() != null)
+    {
                         Toast.makeText(CategoryDetail.this, "Success", Toast.LENGTH_SHORT).show();
 
                         Log.d("Error", "onResponse: body: " + response.body());
@@ -199,15 +198,16 @@ public class CategoryDetail extends AppCompatActivity {
                         // TODO: Read response here
                         //content.get("email").getAsString();
                         //content.get("password").getAsString();
-
+                        Log.d("MyLog","Inside try");
                         // Convert JsonArray to your custom model class list as follow
+                        myModelList = gson.fromJson(content.get("splist").getAsJsonArray().toString(),
+                                new TypeToken<ArrayList<SpDetail>>() {
+                                }.getType());
 
-                        //remaning from here
-                      myModelList= gson.fromJson(content.get("splist").getAsJsonArray().toString(),
-                   	new TypeToken<ArrayList<SpDetail>>(){}.getType());
 
-
-                    } else {
+                    }
+                    else
+                        {
                         Toast.makeText(CategoryDetail.this, "No response available.", Toast.LENGTH_SHORT).show();
 
                         Log.d("Error", "No response available");
@@ -231,8 +231,12 @@ public class CategoryDetail extends AppCompatActivity {
             }
         });
         //
+        if(myModelList!=null)
+        for (SpDetail str : myModelList) {
+            Log.d("arrayList", str.getName() + "  " + str.getExperience());
 
+
+        }
         return myModelList;
-
     }
 }
