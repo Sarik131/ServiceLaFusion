@@ -3,7 +3,7 @@
 
 <LinearLayout
     tools:context=".MainActivity"
-    android:weightSum="10"
+    android:weightSum="8"
     android:orientation="vertical"
     android:layout_height="match_parent"
     android:layout_width="match_parent"
@@ -53,20 +53,23 @@
 
         <LinearLayout
             android:weightSum="2"
-            android:orientation="horizontal"
+            android:orientation="vertical"
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:gravity="center"
           >
-
             <Button
                 android:id="@+id/btnCSubmit"
-              style="@style/ButtonStyle"
+                style="@style/ButtonStyle"
                 android:onClick="cSubmit"
                 android:text="@string/submit"
-                />
-
-
+                tools:ignore="OnClick" />
+            <Button
+                android:id="@+id/btnCAr"
+                style="@style/ButtonStyle"
+                android:onClick="cAr"
+                android:text="Augmented Reality"
+                tools:ignore="OnClick" />
         </LinearLayout>
         <TextView
             style="@style/TextViewStyle"
@@ -77,7 +80,6 @@
             android:text="@string/Loginsp"
             android:onClick="spRegister"
             tools:ignore="OnClick" />
-
-
     </LinearLayout>
+
 </LinearLayout>

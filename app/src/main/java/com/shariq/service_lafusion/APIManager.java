@@ -30,9 +30,14 @@ public interface APIManager {
     @POST(Constant.URL_GET_DETAIL)
     Call<Map<String, Object>> getDetails(@FieldMap Map<String, String> params);
 
+
     @FormUrlEncoded
     @POST(Constant.URL_GET_SP_LIST)
     Call<Map<String, Object>> getSpList(@FieldMap Map<String, String> params);
+
+    @FormUrlEncoded
+    @POST(Constant.URL_CUST_REGISTER)
+    Call<Map<String, Object>> custRegister(@FieldMap Map<String, String> params);
 
 
 

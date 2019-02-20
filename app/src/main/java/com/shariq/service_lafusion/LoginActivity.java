@@ -98,9 +98,10 @@ public class LoginActivity extends AppCompatActivity {
                             JsonObject content = gson.fromJson(jsonString, JsonObject.class);
 
                             // TODO: Read response here
-                            //content.get("email").getAsString();
-                            //content.get("password").getAsString();
+                            String check=content.get("check").getAsString();
+                            Log.d("check login",check);
 
+                            //content.get("password").getAsString();
                             // Convert JsonArray to your custom model class list as follow
 //                    ArrayList<LoginPost> myModelList = gson.fromJson(content.get(array_name).getAsJsonArray().toString(),
 //                    	new TypeToken<ArrayList<LoginPost>>(){}.getType());

@@ -3,9 +3,9 @@ package com.shariq.service_lafusion.model;
 public class SpDetail {
 
 
-    private String name;
-    private int id;
-    private int experience;
+    private String name="";
+    private int id=0;
+    private int experience=0;
 
 
     public int getExperience() {

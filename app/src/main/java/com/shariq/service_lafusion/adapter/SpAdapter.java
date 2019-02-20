@@ -22,14 +22,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SpAdapter extends RecyclerView.Adapter<SpAdapter.MyHolder>  {
-    private ArrayList<SpDetail> splist=new ArrayList<>();
+    private List<SpDetail> splist=new ArrayList<>();
     String name[];
     int experience[];
 
     private Filter exampleFilter;
 
 
-    public SpAdapter(ArrayList<SpDetail> splist) {
+    public SpAdapter(List<SpDetail> splist) {
         this.splist = splist;
     }
 
@@ -51,8 +51,9 @@ public class SpAdapter extends RecyclerView.Adapter<SpAdapter.MyHolder>  {
 //        holder.textView.setText(detail.getName());
         SpDetail spDetail=splist.get(position);
         holder.textView.setText(spDetail.getName());
-        Log.d("name","sp naame :  "+spDetail.getName());
+        Log.d("MyLog","sp name :  "+spDetail.getName());
         holder.textView.setText(spDetail.getExperience());
+        Log.d("MyLog","Experience :"+spDetail.getExperience());
 
     }
 

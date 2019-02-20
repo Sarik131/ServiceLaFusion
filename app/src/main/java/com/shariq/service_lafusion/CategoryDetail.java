@@ -34,7 +34,7 @@ public class CategoryDetail extends AppCompatActivity {
     RecyclerView recyclerView;
     private TextView tvcategory, tvdesc;
     private ImageView imageView;
-    ArrayList<SpDetail> myModelList;
+    List<SpDetail> myModelList=new ArrayList<SpDetail>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,10 +65,7 @@ public class CategoryDetail extends AppCompatActivity {
         recyclerView = (RecyclerView) findViewById(R.id.spListRecyclerView);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
-        adapter = new SpAdapter(getList(cData));
-        System.out.print("Batman");
-        Log.d("Batman", "I am rich!!!");
-        recyclerView.setAdapter(adapter);
+        getList(cData);
 
 //initialization
 
@@ -85,7 +82,7 @@ public class CategoryDetail extends AppCompatActivity {
     }
 
 
-    public ArrayList<SpDetail> getList(String name) {
+    public void getList(String name) {
         String category = name;
         Log.d("getList", "karte rehhhh" + category);
 
@@ -201,9 +198,15 @@ public class CategoryDetail extends AppCompatActivity {
                         Log.d("MyLog","Inside try");
                         // Convert JsonArray to your custom model class list as follow
                         myModelList = gson.fromJson(content.get("splist").getAsJsonArray().toString(),
-                                new TypeToken<ArrayList<SpDetail>>() {
+                                new TypeToken<List<SpDetail>>() {
                                 }.getType());
 
+                        if(myModelList!=null)
+                            Log.d("MyLog","not null");
+
+        adapter = new SpAdapter(myModelList);
+
+        recyclerView.setAdapter(adapter);
 
                     }
                     else
@@ -237,6 +240,6 @@ public class CategoryDetail extends AppCompatActivity {
 
 
         }
-        return myModelList;
+
     }
 }

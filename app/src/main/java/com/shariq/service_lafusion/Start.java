@@ -91,6 +91,10 @@ public class Start extends AppCompatActivity {
                         // TODO: Read response here
                          check =content.get("checkLogin").getAsString();
                         //content.get("password").getAsString();
+                        Log.d("checkLogin",check);
+
+                        Intent intent = new Intent(Start.this,Homepage.class);
+                        startActivity(intent);
 
                         // Convert JsonArray to your custom model class list as follow
 //                    ArrayList<LoginPost> myModelList = gson.fromJson(content.get(array_name).getAsJsonArray().toString(),
