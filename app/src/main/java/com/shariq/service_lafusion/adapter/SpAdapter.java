@@ -52,8 +52,9 @@ public class SpAdapter extends RecyclerView.Adapter<SpAdapter.MyHolder>  {
         SpDetail spDetail=splist.get(position);
         holder.textView.setText(spDetail.getName());
         Log.d("MyLog","sp name :  "+spDetail.getName());
-        holder.textView.setText(spDetail.getExperience());
         Log.d("MyLog","Experience :"+spDetail.getExperience());
+        holder.expView.setText(spDetail.getExperience());
+
 
     }
 
@@ -68,14 +69,15 @@ public class SpAdapter extends RecyclerView.Adapter<SpAdapter.MyHolder>  {
 
 
     public class MyHolder extends RecyclerView.ViewHolder {
-        ImageView imageView;
+        TextView expView;
         TextView textView;
 
 
         public MyHolder(View itemView) {
             super(itemView);
-            imageView = itemView.findViewById(R.id.ivGridlayout);
-            textView = itemView.findViewById(R.id.tvGridlayout);
+
+            textView = itemView.findViewById(R.id.tvSpName);
+            expView = itemView.findViewById(R.id.tvSpExp);
         }
     }
 }

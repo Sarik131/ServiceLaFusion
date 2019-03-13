@@ -60,12 +60,14 @@ public class CategoryDetail extends AppCompatActivity {
 //        }
 //        Log.d("cData","Why nothing is coming :"+cname);
         tvcategory = (TextView) findViewById(R.id.tvcategoryName);
+
         //      tvcategory.setText(cname);
         //    Log.d("cData","wtf small"+cname);
         recyclerView = (RecyclerView) findViewById(R.id.spListRecyclerView);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
         getList(cData);
+        tvcategory.setText(cData);
 
 //initialization
 

@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "593863043328",
+    "firebase_url": "https://my-first-project-f5df0.firebaseio.com",
+    "project_id": "my-first-project-f5df0",
+    "storage_bucket": "my-first-project-f5df0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:593863043328:android:73e200910d0b4ad3",
+        "android_client_info": {
+          "package_name": "com.shariq.service_lafusion"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "593863043328-j5ajktfacbf2d8bpf6q5f5h01lke2cc0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCMxELV02Vi1VLOYVh1Ro_7HTR6FdkQvKc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
