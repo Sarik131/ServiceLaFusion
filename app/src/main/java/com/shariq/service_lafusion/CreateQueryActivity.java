@@ -51,7 +51,7 @@ public class CreateQueryActivity extends AppCompatActivity {
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             try {
-                requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE}, 555);
+                requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 555);
             } catch (Exception e) {
 
             }
@@ -62,10 +62,12 @@ public class CreateQueryActivity extends AppCompatActivity {
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        if (requestCode == 555 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-            pickImage();
-        } else {
-            checkandroidversion();
+        if (requestCode == 555 ) {
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                pickImage();
+            } else {
+                Toast.makeText(this, "Permission not granted.", Toast.LENGTH_SHORT).show();
+            }
         }
     }
 
@@ -98,7 +100,7 @@ public class CreateQueryActivity extends AppCompatActivity {
             if (requestCode == RESULT_OK) {
                 try {
                     Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), result.getUri());
-                    ((ImageView) findViewById(R.id.ivCqPhoto1)).setImageBitmap(bitmap);
+                    imageView1.setImageBitmap(bitmap);
 
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
