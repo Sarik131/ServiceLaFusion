@@ -1,10 +1,15 @@
 package com.shariq.service_lafusion;
 
+import android.Manifest;
+import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -12,80 +17,97 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.soundcloud.android.crop.Crop;
+
+import com.theartofdev.edmodo.cropper.CropImage;
+import com.theartofdev.edmodo.cropper.CropImageView;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
 public class CreateQueryActivity extends AppCompatActivity {
- ImageView imageView1;
- EditText editText;
+    ImageView imageView1;
+    EditText editText;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_query);
-        imageView1=(ImageView)findViewById(R.id.ivCqPhoto1);
-        editText=(EditText)findViewById(R.id.edtCqWriteHere);
+        imageView1 = (ImageView) findViewById(R.id.ivCqPhoto1);
+        editText = (EditText) findViewById(R.id.edtCqWriteHere);
+
 
         imageView1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               openGallery(v);
+                checkandroidversion();
             }
         });
-
     }
 
-    public  void openGallery(View view)
-    {
-        Crop.pickImage(this);
+    public void checkandroidversion() {
+
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            try {
+                requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE}, 555);
+            } catch (Exception e) {
+
+            }
+        } else {
+            pickImage();
+        }
     }
 
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        if (requestCode == 555 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            pickImage();
+        } else {
+            checkandroidversion();
+        }
+    }
+
+    public void pickImage() {
+
+        CropImage.startPickImageActivity(this);
+    }
+
+    private void croprequest(Uri imageUri) {
+
+        CropImage.activity(imageUri)
+                .setGuidelines(CropImageView.Guidelines.ON)
+                .setMultiTouchEnabled(true)
+                .start(this);
+
+    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
 
-        if(requestCode == RESULT_OK )
-        {
-            if(requestCode == Crop.REQUEST_PICK)
-            {
-                Uri source=data.getData();
-                Uri destination=Uri.fromFile(new File(getCacheDir(),"cropped"));
+        //RESULZT FROM SELECTED IMAGE
+        if (requestCode == CropImage.PICK_IMAGE_CHOOSER_REQUEST_CODE && resultCode == Activity.RESULT_OK) {
+            Uri imageUri = CropImage.getPickImageResultUri(this, data);
+            croprequest(imageUri);
+        }
 
-                Crop.of(source,destination).asSquare().start(this);
-                imageView1.setImageURI(Crop.getOutput(data));
+        //RESULT FROM CROPPING IMAGE
+        if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
+            CropImage.ActivityResult result = CropImage.getActivityResult(data);
+            if (requestCode == RESULT_OK) {
+                try {
+                    Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), result.getUri());
+                    ((ImageView) findViewById(R.id.ivCqPhoto1)).setImageBitmap(bitmap);
+
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
-            else if(requestCode == Crop.REQUEST_CROP)
-            {
-                handle(requestCode,data);
-            }
-
         }
-    }
 
-    private void handle(int Code, Intent data) {
-        if(Code==RESULT_OK)
-        {
-            imageView1.setImageURI(Crop.getOutput(data));
-        }
-        else if(Code == Crop.RESULT_ERROR)
-        {
-            Toast.makeText(this,"Error",Toast.LENGTH_SHORT);
-        }
-    }
-
-    public void clickIt(View view)
-    {
-         String writeHere;
-         int image;
-         writeHere=editText.toString();
-         image=imageView1.getId();
-         Intent intent = new Intent(CreateQueryActivity.this, QueryStatusActivity.class);
-         intent.putExtra("WriteHere",writeHere);
-         intent.putExtra("Image",image);
-         startActivity(intent);
     }
 
 }

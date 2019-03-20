@@ -24,17 +24,18 @@
         android:layout_marginBottom="5dp"
         android:background="#d3d3d3"
         android:orientation="vertical"
-        android:gravity="start"
+        android:gravity="center"
         android:layout_below="@id/layoutToolbar">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="120dp"
-            android:layout_marginTop="10dp"
+
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_marginBottom="5dp"
             android:orientation="horizontal"
             android:padding="5dp"
+            android:alpha="6"
             android:background="#DCDCDC">
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -90,12 +91,23 @@
             android:layout_height="120dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-android:background="@drawable/box"
+            android:background="@drawable/box"
             android:padding="5dp"
             android:layout_marginBottom="8dp"
             android:backgroundTint="#FFFAFA">
 
         </android.support.v7.widget.RecyclerView>
+        <Button
+            android:id="@+id/btnAdd"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Add"
+            android:background="@color/colorPrimary"
+            android:textColor="@color/colorBackgroundWhite"
+            android:gravity="center"
+           />
+
+
 
     </LinearLayout>
 

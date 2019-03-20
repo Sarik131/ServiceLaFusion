@@ -5,5 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".HistoryActivity">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:src="@drawable/curveshape"
+        android:layout_marginTop="200dp"/>
 
 </android.support.constraint.ConstraintLayout>

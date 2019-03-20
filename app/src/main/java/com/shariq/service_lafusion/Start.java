@@ -16,6 +16,7 @@ import com.google.gson.JsonObject;
 import java.util.HashMap;
 import java.util.Map;
 
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -33,6 +34,16 @@ public class Start extends AppCompatActivity {
         email= (TextView) findViewById(R.id.edtSpEmail);
         password=(TextView) findViewById(R.id.edtSpPassword);
 
+
+      /*  sbg.setOnClickedButtonPosition(new SegmentedButtonGroup.OnClickedButtonPosition() {
+            @Override
+            public void onClickedButtonPosition(int position) {
+                if(position ==0)
+                {
+                  Toast.makeText(Start.this,"Customer Login",Toast.LENGTH_SHORT).show();
+                }
+            }
+        });*/
 
     }
     public void forgotPassword(View view)

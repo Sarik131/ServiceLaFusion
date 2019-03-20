@@ -59,7 +59,9 @@
         <item name="android:background">@drawable/round_button</item>
         <item name="android:textColor">@android:color/white</item>
         <item name="android:textSize">17sp</item>
+
     </style>
+
 
     <style name="SpinnerStyle">
         <item name="android:layout_width">match_parent</item>

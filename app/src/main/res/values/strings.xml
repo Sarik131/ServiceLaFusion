@@ -59,12 +59,12 @@
     <string name="user_id">User ID</string>
     <string name="register">Register</string>
 
-    <string name="forgot_password">FORGOT PASSWORD?</string>
+    <string name="forgot_password">Forgot Password</string>
     <string name="login">LOG IN</string>
 
     <!-- Login -->
 
-    <string name="enter_email_id">email add</string>
+    <string name="enter_email_id">Email</string>
     <string name="password">Password</string>
     <string name="Loginsp">Login as Service Provider</string>
     <string name="alreadyreg">Already Registered</string>
@@ -114,6 +114,7 @@
     <string name="home">home</string>
     <string name="pest">pest</string>
     <string name="selectImage">(Click the icon to select an image)</string>
+    <string name="account">Don\'t have Account?</string>
 
     <string-array name="category">
         <item>Select Category..</item>
