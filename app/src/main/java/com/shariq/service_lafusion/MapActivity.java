@@ -76,7 +76,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
                 if (locationList.size() >= 2) {
                     String url = getDirectionsUrl(locationList.get(0), locationList.get(locationList.size() - 1),
                             locationList.size()>2   ?   locationList.subList(1, locationList.size() - 1)    :    new ArrayList<LatLng>());
-
+//
                     DownloadTask downloadTask = new DownloadTask();
 
                     // Start downloading json data from Google Directions API
