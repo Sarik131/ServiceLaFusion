@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ServiceProvider"
+    android:orientation="vertical">
+    <include layout="@layout/layout_toolbar" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/cqRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/app_normal_margin"
+        android:layout_marginRight="@dimen/app_normal_margin"
+        android:background="@drawable/box"
+        android:padding="5dp"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="#FFFAFA">
+
+    </android.support.v7.widget.RecyclerView>
+    <EditText
+        android:id="@+id/edtQsReply"
+        style="@style/EditTextStyle"
+        android:layout_marginTop="@dimen/app_normal_margin"
+        android:background="@drawable/box"
+        android:gravity="left|top"
+        android:hint="Reply"
+        android:lines="4"
+        android:padding="5dp"
+      />
+
+    <EditText
+        android:id="@+id/edtQsAmount"
+        style="@style/EditTextStyle"
+        android:layout_marginTop="@dimen/app_normal_margin"
+        android:background="@drawable/box"
+        android:gravity="left|top"
+        android:hint="Amount"
+        android:padding="5dp" />
+
+    <Button
+        android:id="@+id/btnCqSubmit"
+        style="@style/ButtonStyle"
+        android:onClick="clickIt"
+        android:layout_margin="@dimen/app_normal_margin"
+        android:layout_alignParentBottom="true"
+        android:text="@string/submit" />
+
+</LinearLayout>

@@ -78,8 +78,8 @@
     <string name="submit">Submit</string>
     <string name="experience">Experience</string>
     <string name="retype_password">Retype Password</string>
-    <string name="category">Category</string>
-
+    <string name="category">(Category)</string>
+<string name="title">Title</string>
 
     <!--Profile -->
 

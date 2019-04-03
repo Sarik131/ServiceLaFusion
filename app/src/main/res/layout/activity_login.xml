@@ -14,6 +14,7 @@
         android:layout_marginTop="60dp"
         android:src="@drawable/roundloggo2" />
 
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -26,6 +27,30 @@
         android:layout_marginBottom="20dp"/>
 
 
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/colorPrimary"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="20dp">
+
+        <RadioButton
+            android:id="@+id/rbCustomer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Customer"
+            android:textColor="@color/colorPrimary"
+            android:layout_marginRight="@dimen/app_normal_margin"
+            />
+        <RadioButton
+            android:id="@+id/rbServiceProvider"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Service Provider"
+            android:textColor="@color/colorPrimary"/>
+
+    </RadioGroup>
     <EditText
 
         android:id="@+id/edtSpEmail"
@@ -34,7 +59,7 @@
         android:layout_marginBottom="@dimen/app_small_margin"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/box"
         android:hint="@string/enter_email_id"
         android:padding="5dp" />

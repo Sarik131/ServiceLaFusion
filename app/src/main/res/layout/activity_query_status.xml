@@ -4,40 +4,62 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
     android:orientation="vertical"
-android:gravity="center"
     tools:context=".QueryStatusActivity">
 
-    <include layout="@layout/layout_toolbar"
+    <include layout="@layout/layout_toolbar" />
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/layoutToolbar"></include>
-  <TextView
-      android:id="@+id/tvQsCategory"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:text="@string/category"
-      android:textSize="20dp"
-      android:textColor="#000000"
-      android:textAlignment="center"
-      android:layout_marginTop="@dimen/app_small_margin"/>
+        android:orientation="horizontal"
+        android:weightSum="10">
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/app_small_margin"
+            android:text="@string/title"
+            android:textAlignment="viewEnd"
+            android:textColor="#000000"
+            android:textSize="20dp"
+            android:layout_weight="6"
+            android:paddingRight="3dp"
+
+            />
+
+        <TextView
+            android:id="@+id/tvCategory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/app_small_margin"
+            android:text="@string/category"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textSize="15dp"
+            android:paddingLeft="4dp"/>
+
+
+    </LinearLayout>
+
 
     <TextView
         android:id="@+id/tvQsDesc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Description here"
-        android:paddingLeft="@dimen/app_small_margin"
-        android:lines="3"
-        android:background="@drawable/box"
         android:layout_marginLeft="@dimen/app_normal_margin"
         android:layout_marginRight="@dimen/app_normal_margin"
         android:layout_marginTop="@dimen/app_small_margin"
-        />
+        android:background="@drawable/box"
+        android:lines="3"
+        android:paddingLeft="@dimen/app_small_margin"
+        android:text="Description here" />
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/app_normal_margin"
         android:layout_marginTop="@dimen/app_normal_margin"
@@ -48,38 +70,35 @@ android:gravity="center"
 
         <ImageView
             android:id="@+id/ivQsPhoto1"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="100dp"
             android:padding="10dp"
             app:srcCompat="@drawable/cq_camera" />
     </LinearLayout>
 
     <android.support.v7.widget.RecyclerView
+        android:id="@+id/qsRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:layout_marginLeft="@dimen/app_normal_margin"
         android:layout_marginRight="@dimen/app_normal_margin"
         android:background="@drawable/box"
-        android:padding="5dp"
-        android:id="@+id/qsRecyclerView">
+        android:padding="5dp">
 
     </android.support.v7.widget.RecyclerView>
-    <EditText
-        android:id="@+id/edtQsReply"
-        style="@style/EditTextStyle"
-        android:layout_marginTop="@dimen/app_normal_margin"
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rvSpReply"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="@dimen/app_normal_margin"
+        android:layout_marginRight="@dimen/app_normal_margin"
         android:background="@drawable/box"
-        android:gravity="left|top"
-        android:hint="Reply"
-        android:lines="4"
-        android:padding="5dp" />
+        android:padding="5dp"
+       >
 
-
-
-
-
-
-
+    </android.support.v7.widget.RecyclerView>
 
 
 </LinearLayout>
