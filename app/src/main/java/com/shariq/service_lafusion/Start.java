@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,12 +29,15 @@ public class Start extends AppCompatActivity {
     public TextView email;
     public TextView password;
     public String check;
+    public RadioGroup user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         email=  findViewById(R.id.edtSpEmail);
         password= findViewById(R.id.edtSpPassword);
+        user= findViewById(R.id.rdiUser);
+
         Log.d("email", String.valueOf(email.getText()));
         Log.d("email", String.valueOf(password.getText()));
 
@@ -106,7 +111,9 @@ public class Start extends AppCompatActivity {
                         Log.d("checkLogin",check);
 
                                 if(check.equals("true")) {
+
                                     Intent intent = new Intent(Start.this, Homepage.class);
+                                    intent.putExtra("user",user.getTextAlignment());
                                     startActivity(intent);
                                 }
                                 else
