@@ -7,10 +7,14 @@
     tools:context=".CategoryDetail"
     android:orientation="vertical">
 
+
+
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
+
+    <include layout="@layout/toolbar"/>
     <TextView
         android:id="@+id/tvcategoryName"
         style="@style/TextViewStyle"
@@ -41,7 +45,7 @@
         android:layout_gravity="end|bottom"
         android:layout_marginRight="10dp"
         android:layout_marginBottom="10dp"
-        android:src="@drawable/ic_menu_camera"/>
+        android:src="@drawable/add_fab"/>
 
 
 </android.support.design.widget.CoordinatorLayout>

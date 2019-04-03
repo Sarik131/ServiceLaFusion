@@ -113,7 +113,7 @@
     <string name="Painting">painting</string>
     <string name="home">home</string>
     <string name="pest">pest</string>
-    <string name="selectImage">(Click the icon to select an image)</string>
+    <string name="selectImage">Pick Image (Click the icon to select an image)</string>
     <string name="account">Don\'t have Account?</string>
 
     <string-array name="category">

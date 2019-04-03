@@ -11,10 +11,12 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -28,6 +30,9 @@ import java.io.IOException;
 public class CreateQueryActivity extends AppCompatActivity {
     ImageView imageView1;
     EditText editText;
+    Toolbar toolbar;
+    TextView txtTitle;
+    ImageView backBtn;
 
 
     @Override
@@ -40,6 +45,20 @@ public class CreateQueryActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 checkandroidversion();
+            }
+        });
+        initToolbar();
+    }
+
+    private void initToolbar() {
+        toolbar=(Toolbar)findViewById(R.id.toolbar);
+        txtTitle=(TextView)findViewById(R.id.toolBarTitle);
+        txtTitle.setText("Create Query");
+        backBtn=(ImageView)findViewById(R.id.backBtn);
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
     }
