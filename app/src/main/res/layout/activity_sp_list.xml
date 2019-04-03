@@ -6,10 +6,7 @@
     android:layout_height="45dp"
     android:background="#f1f8e9"
     android:orientation="horizontal"
-    android:paddingBottom="8dp"
-    android:paddingLeft="8dp"
-    android:paddingRight="8dp"
-    android:paddingTop="8dp"
+    android:padding="5dp"
     android:weightSum="10"
     android:layout_margin="12dp">
 

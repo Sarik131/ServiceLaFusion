@@ -36,8 +36,6 @@ public class CreateQueryActivity extends AppCompatActivity {
         setContentView(R.layout.activity_create_query);
         imageView1 = (ImageView) findViewById(R.id.ivCqPhoto1);
         editText = (EditText) findViewById(R.id.edtCqWriteHere);
-
-
         imageView1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -97,17 +95,13 @@ public class CreateQueryActivity extends AppCompatActivity {
         //RESULT FROM CROPPING IMAGE
         if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
             CropImage.ActivityResult result = CropImage.getActivityResult(data);
-            if (requestCode == RESULT_OK) {
-                try {
-                    Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), result.getUri());
-                    imageView1.setImageBitmap(bitmap);
+            if (resultCode == RESULT_OK) {
 
-                } catch (FileNotFoundException e) {
-                    e.printStackTrace();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
+
+                    imageView1.setImageURI(result.getUri());   //use this uri for uploading image at serveru
+
+
+                    }
         }
 
     }

@@ -13,8 +13,6 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true" />
 
-
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -105,19 +103,8 @@
             android:text="Add"
             android:background="@color/colorPrimary"
             android:textColor="@color/colorBackgroundWhite"
-            android:gravity="center"
-           />
-
-
+            android:gravity="center" />
 
     </LinearLayout>
-
-    <Button
-        android:id="@+id/btnCqSubmit"
-        style="@style/ButtonStyle"
-        android:onClick="clickIt"
-        android:layout_margin="@dimen/app_normal_margin"
-        android:layout_alignParentBottom="true"
-        android:text="@string/submit" />
 
 </RelativeLayout>

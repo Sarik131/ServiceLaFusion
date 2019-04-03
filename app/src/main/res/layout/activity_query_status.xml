@@ -95,8 +95,7 @@
         android:layout_marginLeft="@dimen/app_normal_margin"
         android:layout_marginRight="@dimen/app_normal_margin"
         android:background="@drawable/box"
-        android:padding="5dp"
-       >
+        android:padding="5dp">
 
     </android.support.v7.widget.RecyclerView>
 
