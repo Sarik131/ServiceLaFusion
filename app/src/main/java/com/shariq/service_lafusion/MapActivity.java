@@ -2,6 +2,8 @@ package com.shariq.service_lafusion;
 
 import android.app.ProgressDialog;
 import android.graphics.Color;
+import android.location.Address;
+import android.location.Geocoder;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -38,7 +40,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
     // TODO: Step-6: Create object of Google Map and list of locations.
     private GoogleMap map;
     private ArrayList<LatLng> locationList = new ArrayList<>();
-
+    private String custAdd;
     private ProgressDialog progressDialog;
 
     @Override
@@ -56,9 +58,10 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         // TODO: Step-9: Prepare list of locations for getting route.
         // First location will be starting point, last location will be destination & intermediate locations will be way points.
         locationList.add(new LatLng(22.332770, 73.217033));
-        locationList.add(new LatLng(22.311784, 73.191386));
-        locationList.add(new LatLng(22.298150, 73.197092));
-        locationList.add(new LatLng(22.311093, 73.180872));
+//        locationList.add(new LatLng(22.311784, 73.191386));
+//        locationList.add(new LatLng(22.298150, 73.197092));
+//        locationList.add(new LatLng(22.311093, 73.180872));
+        custAdd="A-109, Rajlaxmi Complex,, Old Padra Rd, Chikuwadi, Haripura, Vadodara, Gujarat 390015";
     }
 
     @Override
@@ -73,17 +76,16 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         findViewById(R.id.fabDirections).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (locationList.size() >= 2) {
-                    String url = getDirectionsUrl(locationList.get(0), locationList.get(locationList.size() - 1),
-                            locationList.size()>2   ?   locationList.subList(1, locationList.size() - 1)    :    new ArrayList<LatLng>());
+                //if (locationList.size() >= 2) {
+                    String url = getDirectionsUrl(locationList.get(0),custAdd);
 //
                     DownloadTask downloadTask = new DownloadTask();
 
                     // Start downloading json data from Google Directions API
                     downloadTask.execute(url);
-                } else {
-                    Toast.makeText(MapActivity.this, "At least two locations are required for drawing route", Toast.LENGTH_LONG).show();
-                }
+//                } else {
+//                    Toast.makeText(MapActivity.this, "At least two locations are required for drawing route", Toast.LENGTH_LONG).show();
+//                }
             }
         });
     }
@@ -92,31 +94,31 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
     /**
      * Get direction url for Google Direction API.
      */
-    private String getDirectionsUrl(LatLng origin, LatLng dest, List<LatLng> wayPointList) {
+    private String getDirectionsUrl(LatLng origin, String dest) {
         // Building the parameters
         String parameters = "key=" + getString(R.string.google_api_key1)
                 + "&" + "origin=" + origin.latitude + "," + origin.longitude
-                + "&" + "destination=" + dest.latitude + "," + dest.longitude
+                + "&" + "destination=" + dest
                 + "&" + "sensor=false";
 
-        String wayPointLatLngs = "";
-
-        if (wayPointList.size() > 0) {
-            StringBuilder wayPointLatLngBuilder = new StringBuilder();
-
-            for (LatLng wayPoint : wayPointList) {
-                wayPointLatLngBuilder.append(wayPoint.latitude).append(",").append(wayPoint.longitude).append("|");
-            }
-
-            if (wayPointLatLngBuilder.toString().length() > 1) {
-                wayPointLatLngs = wayPointLatLngBuilder.toString()
-                        .substring(0, wayPointLatLngBuilder.toString().length() - 1);
-            }
-        }
-
-        if (!wayPointLatLngs.isEmpty()) {
-            parameters += "&" + "waypoints=" + wayPointLatLngs;
-        }
+//        String wayPointLatLngs = "";
+//
+//        if (wayPointList.size() > 0) {
+//            StringBuilder wayPointLatLngBuilder = new StringBuilder();
+//
+//            for (LatLng wayPoint : wayPointList) {
+//                wayPointLatLngBuilder.append(wayPoint.latitude).append(",").append(wayPoint.longitude).append("|");
+//            }
+//
+//            if (wayPointLatLngBuilder.toString().length() > 1) {
+//                wayPointLatLngs = wayPointLatLngBuilder.toString()
+//                        .substring(0, wayPointLatLngBuilder.toString().length() - 1);
+//            }
+//        }
+//
+//        if (!wayPointLatLngs.isEmpty()) {
+//            parameters += "&" + "waypoints=" + wayPointLatLngs;
+//        }
 
         // Building the url to the web service
         return "https://maps.googleapis.com/maps/api/directions/json?" + parameters;
@@ -128,12 +130,31 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
     private void showMarkers() {
         LatLngBounds.Builder builder = new LatLngBounds.Builder();
 
-        for (int i = 0; i < locationList.size(); i++) {
-            map.addMarker(new MarkerOptions().position(locationList.get(i)));
+//        for (int i = 0; i < locationList.size(); i++) {
+            map.addMarker(new MarkerOptions().position(locationList.get(0)));
 
             // Adding location in bounds
-            builder.include(locationList.get(i));
-        }
+            builder.include(locationList.get(0));
+
+            Geocoder coder =new Geocoder(this);
+            List<Address> address;
+
+            try{
+                address= coder.getFromLocationName(custAdd,5);
+                if(address == null)
+                {
+                    return;
+                }
+                Address location =address.get(0);
+                locationList.add(new LatLng(location.getLatitude(), location.getLongitude()));
+            }
+            catch(Exception e)
+            {
+
+            }
+        map.addMarker(new MarkerOptions().position(locationList.get(1)));
+        builder.include(locationList.get(1));
+        //}
 
         final LatLngBounds bounds = builder.build();
 
