@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -26,14 +27,12 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public  class SpregisterrActivity extends AppCompatActivity  {
-    EditText edtName, edtEmail, edtPhoneNumber, edtPassword, edtRetype_Pass, edtExperirnce;
-    Spinner spCategory;
-    Button btnSubmit;
 
     EditText edtSpName;
     EditText edtSpEmail;
     EditText edtSpPhoneNumber;
     EditText edtSpPassword;
+    EditText edtSpRePassword;
     EditText edtSpExperience;
    // Spinner spSpinner;
 
@@ -49,6 +48,7 @@ public  class SpregisterrActivity extends AppCompatActivity  {
 
         edtSpName=(EditText) findViewById(R.id.edtSpName);
         edtSpPassword=(EditText) findViewById(R.id.edtSpPassword);
+        edtSpRePassword= findViewById(R.id.edtSpRenterPass);
         edtSpEmail=(EditText) findViewById(R.id.edtSpEmail);
         edtSpPhoneNumber=(EditText) findViewById(R.id.edtSpPhoneNumber);
         edtSpExperience=(EditText) findViewById(R.id.edtSpExperience);
@@ -57,7 +57,39 @@ public  class SpregisterrActivity extends AppCompatActivity  {
     }
     public void onSubmit(View view)
     {
-
+        String name=edtSpName.getText().toString();
+        if(name.isEmpty())
+        {
+            edtSpName.setError("Enter the name.");
+            return;
+        }
+        String email=edtSpEmail.getText().toString();
+        String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+        if(email.isEmpty() || !email.matches(emailPattern))
+        {
+            edtSpEmail.setError("Invalid email address.");
+            return;
+        }
+        String number =edtSpPassword.getText().toString();
+        String MobilePattern = "[0-9]{10}";
+        if(number.matches(MobilePattern))
+        {
+            edtSpPhoneNumber.setError("Invalid phone number.");
+            return;
+        }
+        String pass = edtSpPassword.getText().toString();
+        String passPattern="((?=.*[a-z])(?=.*\\\\d)(?=.*[A-Z])(?=.*[@#$%!]).{8,20})";
+        if(pass.matches(passPattern))
+        {
+            edtSpPassword.setError("Password must contain mix of upper and lower case letters as well as digits and one special character(8-20)");
+            return;
+        }
+        String repass =edtSpRePassword.getText().toString();
+        if(repass.isEmpty() || !repass.equals(pass))
+        {
+            edtSpRePassword.setError("Those password don't match. Try again.");
+            return;
+        }
         Intent intent = new Intent(SpregisterrActivity.this,Homepage.class);
         startActivity(intent);
         Retrofit retrofit = new Retrofit.Builder().baseUrl(Constant.BASE_URL).addConverterFactory(GsonConverterFactory.create()).build();

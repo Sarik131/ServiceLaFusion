@@ -22,32 +22,38 @@
 
         <EditText
             android:id="@+id/edtCName"
+            android:inputType="text"
             android:hint="@string/name"
             android:layout_marginBottom="@dimen/app_small_margin"
             style="@style/EditTextStyle"/>
 
         <EditText
             android:id="@+id/edtCEmail"
+            android:inputType="textEmailAddress"
             android:hint="@string/email"
             style="@style/EditTextStyle"/>
 
         <EditText
             android:id="@+id/edtCAddress"
+            android:inputType="textPostalAddress"
             android:hint="@string/address"
             style="@style/EditTextStyle"/>
 
         <EditText
             android:id="@+id/edtCPhoneNumber"
+            android:inputType="number"
             android:hint="@string/phone_number"
             style="@style/EditTextStyle"/>
 
         <EditText
             android:id="@+id/edtCPassword"
+            android:inputType="textPassword"
             android:hint="@string/password"
             style="@style/EditTextStyle"/>
 
         <EditText
             android:id="@+id/edtCRenterPass"
+            android:inputType="textPassword"
             android:hint="@string/retype_password"
             style="@style/EditTextStyle"/>
 

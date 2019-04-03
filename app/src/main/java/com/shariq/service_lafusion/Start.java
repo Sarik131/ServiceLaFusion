@@ -31,9 +31,10 @@ public class Start extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        email= (TextView) findViewById(R.id.edtSpEmail);
-        password=(TextView) findViewById(R.id.edtSpPassword);
-
+        email=  findViewById(R.id.edtSpEmail);
+        password= findViewById(R.id.edtSpPassword);
+        Log.d("email", String.valueOf(email.getText()));
+        Log.d("email", String.valueOf(password.getText()));
 
       /*  sbg.setOnClickedButtonPosition(new SegmentedButtonGroup.OnClickedButtonPosition() {
             @Override
@@ -84,7 +85,7 @@ public class Start extends AppCompatActivity {
                 try {
                     // Read response as follow
                     if (response != null && response.body() != null) {
-                        Toast.makeText(Start.this, "Success", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(Start.this, "Success", Toast.LENGTH_SHORT).show();
 
                         Log.d("Error", "onResponse: body: " + response.body());
 
@@ -104,9 +105,14 @@ public class Start extends AppCompatActivity {
                         //content.get("password").getAsString();
                         Log.d("checkLogin",check);
 
-                        Intent intent = new Intent(Start.this,Homepage.class);
-                        startActivity(intent);
-
+                                if(check.equals("true")) {
+                                    Intent intent = new Intent(Start.this, Homepage.class);
+                                    startActivity(intent);
+                                }
+                                else
+                                {
+                                    Toast.makeText(Start.this, "Email or Password is wrong.", Toast.LENGTH_SHORT).show();
+                                }
                         // Convert JsonArray to your custom model class list as follow
 //                    ArrayList<LoginPost> myModelList = gson.fromJson(content.get(array_name).getAsJsonArray().toString(),
 //                    	new TypeToken<ArrayList<LoginPost>>(){}.getType());

@@ -42,6 +42,7 @@
     <EditText
         android:id="@+id/edtSpPassword"
         style="@style/EditTextStyle"
+        android:inputType="textPassword"
         android:layout_height="40dp"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
@@ -90,12 +91,13 @@
             android:text="@string/account"
             android:textSize="14dp" />
 
-        <Button
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/colorBackgroundWhite"
             android:onClick="createAccount"
             android:text="Sign up"
+            android:layout_marginLeft="5dp"
             android:textColor="#4961e1"
             android:textSize="14dp"
             tools:ignore="OnClick" />
