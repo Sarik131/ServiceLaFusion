@@ -36,8 +36,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_api_key1"/>
+
         <activity android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
-            android:theme="@style/Base.ThemeOverlay.AppCompat"/>
+            android:theme="@style/Actionbar"/>
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait">
@@ -98,7 +102,16 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".ForgotPasswordActivity"
+
             android:screenOrientation="portrait" />
+        <!-- TODO: Step-1: Get an API Key for your project and put it here. -->
+        <activity
+            android:name=".MapActivity"
+            android:screenOrientation="portrait"/>
+
+
+
+
     </application>
 
 </manifest>

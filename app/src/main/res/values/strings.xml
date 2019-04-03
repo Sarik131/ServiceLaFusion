@@ -134,4 +134,10 @@
         <item>Plumber</item>
 
     </string-array>
+
+    <!--googel map -->
+
+    <string name="google_api_key1">AIzaSyAnnbaR0HIFOSGP4RCCDMTe5hTJ-DQ7soM</string>
+    <string name="please_wait_">Please Wait…</string>
+
 </resources>

@@ -49,7 +49,7 @@ public class Start extends AppCompatActivity {
     }
     public void forgotPassword(View view)
     {
-        Intent intent = new Intent(Start.this,ForgotPasswordActivity.class);
+        Intent intent = new Intent(Start.this,MapActivity.class);
         startActivity(intent);
     }
     public  void createAccount(View view) {

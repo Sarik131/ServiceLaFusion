@@ -14,4 +14,9 @@
 
     <!--Sp details-->
     <dimen name="starMargin">215dp</dimen>
+
+    <!--Map -->
+    <dimen name="map_bounds_padding">50dp</dimen>
+    <dimen name="route_thickness">4dp</dimen>
+
 </resources>
