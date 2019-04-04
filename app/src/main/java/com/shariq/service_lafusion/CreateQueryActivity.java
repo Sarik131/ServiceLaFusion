@@ -11,10 +11,12 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -28,6 +30,9 @@ import java.io.IOException;
 public class CreateQueryActivity extends AppCompatActivity {
     ImageView imageView1;
     EditText editText;
+    Toolbar toolbar;
+    TextView txtTitle;
+    ImageView backBtn;
 
 
     @Override
@@ -36,12 +41,24 @@ public class CreateQueryActivity extends AppCompatActivity {
         setContentView(R.layout.activity_create_query);
         imageView1 = (ImageView) findViewById(R.id.ivCqPhoto1);
         editText = (EditText) findViewById(R.id.edtCqWriteHere);
-
-
         imageView1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 checkandroidversion();
+            }
+        });
+        initToolbar();
+    }
+
+    private void initToolbar() {
+        toolbar=(Toolbar)findViewById(R.id.toolbar);
+        txtTitle=(TextView)findViewById(R.id.toolBarTitle);
+        txtTitle.setText("Create Query");
+        backBtn=(ImageView)findViewById(R.id.backBtn);
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
     }
@@ -97,17 +114,13 @@ public class CreateQueryActivity extends AppCompatActivity {
         //RESULT FROM CROPPING IMAGE
         if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
             CropImage.ActivityResult result = CropImage.getActivityResult(data);
-            if (requestCode == RESULT_OK) {
-                try {
-                    Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), result.getUri());
-                    imageView1.setImageBitmap(bitmap);
+            if (resultCode == RESULT_OK) {
 
-                } catch (FileNotFoundException e) {
-                    e.printStackTrace();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
+
+                    imageView1.setImageURI(result.getUri());   //use this uri for uploading image at serveru
+
+
+                    }
         }
 
     }

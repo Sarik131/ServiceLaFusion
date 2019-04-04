@@ -1,11 +1,15 @@
 package com.shariq.service_lafusion;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -34,7 +38,12 @@ public class CategoryDetail extends AppCompatActivity {
     RecyclerView recyclerView;
     private TextView tvcategory, tvdesc;
     private ImageView imageView;
+    Toolbar toolbar;
+    TextView txtTitle;
+    ImageView backBtn;
     List<SpDetail> myModelList=new ArrayList<SpDetail>();
+    FloatingActionButton fabBtn;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +69,15 @@ public class CategoryDetail extends AppCompatActivity {
 //        }
 //        Log.d("cData","Why nothing is coming :"+cname);
         tvcategory = (TextView) findViewById(R.id.tvcategoryName);
+        fabBtn=(FloatingActionButton)findViewById(R.id.fab);
+        fabBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(CategoryDetail.this,CreateQueryActivity.class);
+                startActivity(intent);
+            }
+        });
+        initToolBar();
 
         //      tvcategory.setText(cname);
         //    Log.d("cData","wtf small"+cname);
@@ -81,6 +99,19 @@ public class CategoryDetail extends AppCompatActivity {
         intent.putExtra("category",cname);
 >>>>>>> Stashed changes
     */
+    }
+
+    private void initToolBar() {
+        toolbar=(Toolbar)findViewById(R.id.toolbar);
+        txtTitle=(TextView)findViewById(R.id.toolBarTitle);
+        txtTitle.setText("Category Detail");
+        backBtn=(ImageView)findViewById(R.id.backBtn);
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
 
