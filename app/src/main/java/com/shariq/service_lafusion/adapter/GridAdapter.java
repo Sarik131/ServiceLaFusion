@@ -55,6 +55,13 @@ public class GridAdapter extends RecyclerView.Adapter<GridAdapter.Myholder>imple
                   String val= category.getName();
                   intent.putExtra("catName",category.getName());
 
+//                  Bundle bundle = intent.getExtras();
+//                  String c_address ="";
+//                  if(bundle!=null){
+//                      c_address= bundle.getString("c_address");
+//                  }
+//                  Log.d("gridAdapter address:",c_address);
+//                  intent.putExtra("c_address",c_address);
 //                  Bundle bundle = new Bundle();
 //                  bundle.putString("catName",category.getName().toString());
 
@@ -63,6 +70,7 @@ public class GridAdapter extends RecyclerView.Adapter<GridAdapter.Myholder>imple
                   //intent.putExtra("categoryName",val);
                   Log.d("message","inOnclick"+val);
                   Log.d("message","After intent call");
+
                  context.startActivity(intent);
               }catch(Exception e)
               {

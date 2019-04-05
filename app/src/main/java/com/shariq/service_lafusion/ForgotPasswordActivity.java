@@ -18,7 +18,11 @@ public class ForgotPasswordActivity extends AppCompatActivity {
         Intent intent = new Intent(ForgotPasswordActivity.this,CreateQueryActivity.class);
         startActivity(intent);
     }
-
+    public  void  onCancle (View view)
+    {
+        Intent intent = new Intent(ForgotPasswordActivity.this,MapActivity.class);
+        startActivity(intent);
+    }
 
 
 }

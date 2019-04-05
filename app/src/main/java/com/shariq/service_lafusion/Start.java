@@ -2,6 +2,8 @@ package com.shariq.service_lafusion;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -30,6 +32,7 @@ public class Start extends AppCompatActivity {
     public TextView password;
     public String check;
     public RadioGroup user;
+    private String c_address;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -107,13 +110,19 @@ public class Start extends AppCompatActivity {
 
                         // TODO: Read response here
                          check =content.get("checkLogin").getAsString();
+                         c_address=content.get("c_address").getAsString();
                         //content.get("password").getAsString();
                         Log.d("checkLogin",check);
+                        Log.d("c_address : ",c_address);
 
                                 if(check.equals("true")) {
 
+                                    SharedPreferences data = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+                                    data.edit().putString("c_address", c_address).commit();
+
                                     Intent intent = new Intent(Start.this, Homepage.class);
                                     intent.putExtra("user",user.getTextAlignment());
+                                    intent.putExtra("c_address",c_address);
                                     startActivity(intent);
                                 }
                                 else

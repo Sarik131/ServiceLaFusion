@@ -330,7 +330,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
                 // Adding all the points in the route to LineOptions
                 lineOptions.addAll(points);
                 lineOptions.width(getResources().getDimension(R.dimen.route_thickness));
-                lineOptions.color(Color.BLACK);
+                lineOptions.color(R.color.route);
             }
 
             // Drawing polyline in the Google Map for the i-th route

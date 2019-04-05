@@ -114,7 +114,12 @@ public class CategoryDetail extends AppCompatActivity {
         });
     }
 
+    private void onCreateQuery(View view)
+    {
+        Intent intent =new Intent(CategoryDetail.this, CreateQueryActivity.class);
 
+        startActivity(intent);
+    }
     public void getList(String name) {
         String category = name;
         Log.d("getList", "karte rehhhh" + category);

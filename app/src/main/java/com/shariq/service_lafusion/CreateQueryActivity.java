@@ -4,11 +4,13 @@ import android.Manifest;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -137,17 +139,25 @@ public class CreateQueryActivity extends AppCompatActivity {
         }
 
     }
-    void cSubmit(View view)
+    public void cSubmit(View view)
     {
         Log.d("MyLog","onSubmit");
         Retrofit retrofit = new Retrofit.Builder().baseUrl(Constant.BASE_URL).addConverterFactory(GsonConverterFactory.create()).build();
 
         // Sending param
         Map<String, String> params = new HashMap<>();
+        SharedPreferences data = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+        String c_address = data.getString("c_address", "THIS IS DEFAULT VALUE");
 
-
+//        Bundle bundle = getIntent().getExtras();
+//        String c_address ="";
+//        if(bundle!=null){
+//            c_address= bundle.getString("c_address");
+//        }
+        Log.d("createquery address:",c_address);
         params.put("catTitle", edtCatTitle.getText().toString());
         params.put("description", edtCqWriteHere.getText().toString());
+        params.put("c_address",c_address );
 
 
         //params.put("category", spinner.getSelectedItem().toString());

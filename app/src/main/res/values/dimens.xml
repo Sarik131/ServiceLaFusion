@@ -17,6 +17,6 @@
 
     <!--Map -->
     <dimen name="map_bounds_padding">50dp</dimen>
-    <dimen name="route_thickness">4dp</dimen>
+    <dimen name="route_thickness">6dp</dimen>
 
 </resources>
