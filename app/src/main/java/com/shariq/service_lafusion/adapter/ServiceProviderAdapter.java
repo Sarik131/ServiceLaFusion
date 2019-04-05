@@ -69,8 +69,8 @@ public class ServiceProviderAdapter extends RecyclerView.Adapter<ServiceProvider
             super(itemView);
 
             txtTitle=(TextView)itemView.findViewById(R.id.txtTitlele);
-            txtAlert =(TextView)itemView.findViewById(R.id.txtAlert);
-            linearLayout =(LinearLayout)itemView.findViewById(R.id.spLinearLayout);
-        }
+//            txtAlert =(TextView)itemView.findViewById(R.id.txtAlert);
+//            linearLayout =(LinearLayout)itemView.findViewById(R.id.spLinearLayout);
+       }
     }
 }

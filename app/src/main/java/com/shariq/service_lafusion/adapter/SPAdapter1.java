@@ -69,8 +69,8 @@ public class SPAdapter1 extends RecyclerView.Adapter<SPAdapter1.MyViewHolder> {
             super(itemView);
 
             txtTitle=(TextView)itemView.findViewById(R.id.txtTitlele);
-            txtAlert =(TextView)itemView.findViewById(R.id.txtAlert);
-            linearLayout =(LinearLayout)itemView.findViewById(R.id.spLinearLayout);
+//            txtAlert =(TextView)itemView.findViewById(R.id.txtAlert);
+//            linearLayout =(LinearLayout)itemView.findViewById(R.id.spLinearLayout);
         }
     }
 }
