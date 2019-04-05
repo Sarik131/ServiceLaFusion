@@ -3,12 +3,12 @@ package com.shariq.service_lafusion;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -16,10 +16,8 @@ import android.widget.Toast;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 
-
 import java.util.HashMap;
 import java.util.Map;
-
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -30,16 +28,18 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class Start extends AppCompatActivity {
     public TextView email;
     public TextView password;
-    public String check;
-    public RadioGroup user;
-    private String c_address;
+    public String check="";
+    public RadioGroup radioGroupUser;
+    public RadioButton radioButtonUser;
+    private String c_address="",sp_id="";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        email=  findViewById(R.id.edtSpEmail);
-        password= findViewById(R.id.edtSpPassword);
-        user= findViewById(R.id.rdiUser);
+        email = findViewById(R.id.edtSpEmail);
+        password = findViewById(R.id.edtSpPassword);
+        radioGroupUser = findViewById(R.id.radioGroupUser);
 
         Log.d("email", String.valueOf(email.getText()));
         Log.d("email", String.valueOf(password.getText()));
@@ -55,23 +55,35 @@ public class Start extends AppCompatActivity {
         });*/
 
     }
-    public void forgotPassword(View view)
-    {
-        Intent intent = new Intent(Start.this,ForgotPasswordActivity.class);
+
+    public void forgotPassword(View view) {
+        Intent intent = new Intent(Start.this, ForgotPasswordActivity.class);
         startActivity(intent);
     }
-    public  void createAccount(View view) {
+
+    public void createAccount(View view) {
         Intent intent = new Intent(Start.this, Cust_Registration.class);
         startActivity(intent);
     }
-    public void onLogin(View view)
-    {
+
+    public void onLogin(View view) {
+
         Retrofit retrofit = new Retrofit.Builder().baseUrl(Constant.BASE_URL).addConverterFactory(GsonConverterFactory.create()).build();
+
+        if(radioGroupUser.getCheckedRadioButtonId() == -1 ) {
+            Toast.makeText(Start.this,"Please select the user!!!",Toast.LENGTH_SHORT).show();
+            return;
+        }
+        else {
+            radioButtonUser = (RadioButton) findViewById(radioGroupUser.getCheckedRadioButtonId());
+        }
+
 
         // Sending param
         Map<String, String> params = new HashMap<>();
         params.put("email", email.getText().toString());
         params.put("password", password.getText().toString());
+        params.put("user", radioButtonUser.getText().toString());
 
         // Initializing APIManager
         APIManager api = retrofit.create(APIManager.class);
@@ -109,26 +121,49 @@ public class Start extends AppCompatActivity {
                         JsonObject content = gson.fromJson(jsonString, JsonObject.class);
 
                         // TODO: Read response here
-                         check =content.get("checkLogin").getAsString();
-                         c_address=content.get("c_address").getAsString();
+                        if(radioButtonUser.getText().toString().equalsIgnoreCase("Customer")) {
+                            check = content.get("checkLogin").getAsString();
+                            c_address = content.get("c_address").getAsString();
+                        }
+                        else
+                        {
+                            check = content.get("checkLogin").getAsString();
+                            sp_id = content.get("sp_id").getAsString();
+                        }
                         //content.get("password").getAsString();
-                        Log.d("checkLogin",check);
-                        Log.d("c_address : ",c_address);
+                        Log.d("checkLogin", check);
+                        Log.d("c_address : ", c_address);
+                        Log.d("sp_id : ", sp_id);
 
-                                if(check.equals("true")) {
 
-                                    SharedPreferences data = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
-                                    data.edit().putString("c_address", c_address).commit();
+                        if (check.equals("true")) {
 
+                            SharedPreferences data = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+
+
+                                if(radioButtonUser.getText().toString().equals("Customer")) {
                                     Intent intent = new Intent(Start.this, Homepage.class);
-                                    intent.putExtra("user",user.getTextAlignment());
+                                    Log.d("start.user", radioButtonUser.getText().toString());
+                                    //intent.putExtra("user",user.getTextAlignment());
+                                    data.edit().putString("c_address", c_address).commit();
+                                    data.edit().putString("user", radioButtonUser.getText().toString()).commit();
                                     intent.putExtra("c_address",c_address);
                                     startActivity(intent);
                                 }
                                 else
                                 {
-                                    Toast.makeText(Start.this, "Email or Password is wrong.", Toast.LENGTH_SHORT).show();
+                                    Intent intent = new Intent(Start.this, QueryStatusActivity.class);
+                                    Log.d("start.user", radioButtonUser.getText().toString());
+                                    //intent.putExtra("user",user.getTextAlignment());
+                                    data.edit().putString("sp_id", sp_id).commit();
+                                    data.edit().putString("user", radioButtonUser.getText().toString()).commit();
+                                    startActivity(intent);
                                 }
+
+                        }
+                        else {
+                            Toast.makeText(Start.this, "Email or Password is wrong.", Toast.LENGTH_SHORT).show();
+                        }
                         // Convert JsonArray to your custom model class list as follow
 //                    ArrayList<LoginPost> myModelList = gson.fromJson(content.get(array_name).getAsJsonArray().toString(),
 //                    	new TypeToken<ArrayList<LoginPost>>(){}.getType());
@@ -140,6 +175,8 @@ public class Start extends AppCompatActivity {
                 } catch (Exception e) {
                     Toast.makeText(Start.this, "Error occurred.", Toast.LENGTH_SHORT).show();
 
+                    Log.d("Start.Error",   e.toString());
+//                    Log.d("Start.Error", "Error in reading response: " +  e.printStackTrace());
                     Log.d("Error", "Error in reading response: " + e.getMessage());
                 }
             }
