@@ -1,7 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -11,13 +8,9 @@
     android:orientation="vertical"
     >
 
-
-
     <include layout="@layout/layout_toolbar"/>
 
-
-
-        <EditText
+    <EditText
             android:id="@+id/edtSpName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -80,18 +73,21 @@
             android:layout_marginRight="@dimen/app_normal_margin"
             android:layout_marginBottom="@dimen/app_small_margin"
             android:autofillHints="Select Category" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="@dimen/app_normal_margin"
+        android:layout_marginRight="@dimen/app_normal_margin"
+        android:layout_marginTop="@dimen/app_normal_margin"
+        android:background="@color/grayLight"/>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-       android:gravity="bottom"
-        >
+        android:layout_height="wrap_content">
 
     <Button
         android:id="@+id/btnSpSubmit"
         style="@style/ButtonStyle"
-
-
         android:layout_marginTop="10dp"
         android:onClick="onSubmit"
         android:text="@string/submit"

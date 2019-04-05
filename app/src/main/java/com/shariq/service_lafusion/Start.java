@@ -152,7 +152,7 @@ public class Start extends AppCompatActivity {
                                 }
                                 else
                                 {
-                                    Intent intent = new Intent(Start.this, QueryStatusActivity.class);
+                                    Intent intent = new Intent(Start.this, ServiceProvider.class);
                                     Log.d("start.user", radioButtonUser.getText().toString());
                                     //intent.putExtra("user",user.getTextAlignment());
                                     data.edit().putString("sp_id", sp_id).commit();
