@@ -99,7 +99,7 @@ int i;
         world.setDefaultBitmap(R.drawable.car, World.LIST_TYPE_DEFAULT);
 
         // Setting user's position in the World.
-        world.setGeoPosition(22.311851, 73.197290);
+        world.setGeoPosition(22.188512, 73.188100);
         //world.setLocation();
 
         createGeoObjectsList();
@@ -142,10 +142,32 @@ int i;
 //        }
 
         GeoObject go1 = new GeoObject(1l);
-        go1.setGeoPosition(22.311797, 73.196928);
-        go1.setImageResource(R.drawable.car);
+        go1.setGeoPosition(22.188432, 73.188107);
+        go1.setImageResource(R.drawable.red);
         go1.setName("Creature 1");
         world.addBeyondarObject(go1);
+
+        go1 = new GeoObject(2l);
+        go1.setGeoPosition(22.188526, 73.187938);
+        go1.setImageResource(R.drawable.red);
+        go1.setName("Creature 1");
+        world.addBeyondarObject(go1);
+
+
+        go1 = new GeoObject(3l);
+        go1.setGeoPosition(22.188608, 73.188086);
+        go1.setImageResource(R.drawable.g);
+        go1.setName("Creature 1");
+        world.addBeyondarObject(go1);
+
+
+        go1 = new GeoObject(4l);
+        go1.setGeoPosition(22.188556, 73.188257);
+        go1.setImageResource(R.drawable.red);
+        go1.setName("Creature 1");
+        world.addBeyondarObject(go1);
+
+
 
         Log.d("Error", "createGeoObjectsList: Object added");
     }

@@ -17,6 +17,7 @@ public class QueryStatusActivity extends AppCompatActivity {
     ImageView imageView;
     EditText edtReply,edtAmount;
     Button submit;
+    String title,description;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

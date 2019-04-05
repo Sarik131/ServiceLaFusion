@@ -20,7 +20,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
     }
     public  void  onCancle (View view)
     {
-        Intent intent = new Intent(ForgotPasswordActivity.this,MapActivity.class);
+        Intent intent = new Intent(ForgotPasswordActivity.this,ARactivity.class);
         startActivity(intent);
     }
 
