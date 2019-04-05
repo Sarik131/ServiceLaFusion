@@ -108,8 +108,8 @@
         <activity
             android:name=".MapActivity"
             android:screenOrientation="portrait"/>
-
-
+        <activity android:name=".ServiceProvider"
+            android:screenOrientation="portrait"/>
 
 
     </application>

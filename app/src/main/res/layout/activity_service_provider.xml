@@ -5,67 +5,141 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ServiceProvider"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    >
     <include layout="@layout/layout_toolbar" />
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:gravity="center"
-        >
 <LinearLayout
-    android:id="@+id/spLinearLayout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:visibility="gone">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-    //requests from customer
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/spRecyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/app_normal_margin"
-        android:layout_marginRight="@dimen/app_normal_margin"
-        android:background="@drawable/box"
-        android:padding="5dp"
-        android:layout_marginTop="10dp"
-        android:backgroundTint="#FFFAFA">
-
-    </android.support.v7.widget.RecyclerView>
-//after customer accept the request
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/spRvNew"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/app_normal_margin"
-            android:layout_marginRight="@dimen/app_normal_margin"
-            android:background="@drawable/box"
-            android:padding="5dp"
-            android:visibility="gone"
-            android:layout_marginTop="10dp"
-            android:backgroundTint="#FFFAFA">
-
-        </android.support.v7.widget.RecyclerView>
-
-    </LinearLayout>
-
-    <Button
-        android:id="@+id/btnCqSubmit"
-        style="@style/ButtonStyle"
-        android:layout_margin="@dimen/app_normal_margin"
-        android:layout_alignParentBottom="true"
-        android:text="@string/submit"
-        android:visibility="gone"/>
-
-</LinearLayout>
+    android:gravity="center">
     <TextView
+        android:id="@+id/txtData1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="For Repairing AC at my home"
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+        android:textSize="15dp"/>
+    <View
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="No Request from customer !!"
-        android:gravity="center"/>
-    </LinearLayout>
+        android:layout_height="1dp"
+        android:background="@color/back"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="@dimen/app_normal_margin"
+        android:layout_marginRight="@dimen/app_normal_margin"/>
+
+    <TextView
+        android:id="@+id/txtData2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pest control at my office"
+        android:gravity="center"
+        android:layout_marginTop="16dp"
+        android:textSize="15dp"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/back"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="@dimen/app_normal_margin"
+        android:layout_marginRight="@dimen/app_normal_margin"/>
+    <TextView
+        android:id="@+id/txtData3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Planning a birthday party event"
+        android:gravity="center"
+        android:layout_marginTop="16dp"
+        android:textSize="15dp"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/back"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="@dimen/app_normal_margin"
+        android:layout_marginRight="@dimen/app_normal_margin"/>
+    <TextView
+        android:id="@+id/txtData4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Want to make furniture for my new house"
+        android:gravity="center"
+        android:layout_marginTop="16dp"
+        android:textSize="15dp"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/back"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="@dimen/app_normal_margin"
+        android:layout_marginRight="@dimen/app_normal_margin"/>
 </LinearLayout>
+    <!--Temporarily commited-->
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:orientation="vertical"-->
+        <!--android:gravity="top"-->
+        <!--&gt;-->
+<!--<LinearLayout-->
+    <!--android:id="@+id/spLinearLayout"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:orientation="vertical"-->
+    <!--android:visibility="gone">-->
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:orientation="vertical">-->
+    <!--//requests from customer-->
+    <!--<android.support.v7.widget.RecyclerView-->
+        <!--android:id="@+id/spRecyclerView"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginLeft="@dimen/app_normal_margin"-->
+        <!--android:layout_marginRight="@dimen/app_normal_margin"-->
+        <!--android:background="@drawable/box"-->
+        <!--android:padding="5dp"-->
+        <!--android:layout_marginTop="10dp"-->
+        <!--android:backgroundTint="#FFFAFA">-->
+
+    <!--</android.support.v7.widget.RecyclerView>-->
+<!--//after customer accept the request-->
+        <!--<android.support.v7.widget.RecyclerView-->
+            <!--android:id="@+id/spRvNew"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginLeft="@dimen/app_normal_margin"-->
+            <!--android:layout_marginRight="@dimen/app_normal_margin"-->
+            <!--android:background="@drawable/box"-->
+            <!--android:padding="5dp"-->
+            <!--android:visibility="gone"-->
+            <!--android:layout_marginTop="10dp"-->
+            <!--android:backgroundTint="#FFFAFA">-->
+
+        <!--</android.support.v7.widget.RecyclerView>-->
+
+    <!--</LinearLayout>-->
+
+    <!--<Button-->
+        <!--android:id="@+id/btnCqSubmit"-->
+        <!--style="@style/ButtonStyle"-->
+        <!--android:layout_margin="@dimen/app_normal_margin"-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--android:text="@string/submit"-->
+        <!--android:visibility="gone"/>-->
+
+<!--</LinearLayout>-->
+    <!--<TextView-->
+        <!--android:id="@+id/txtAlert"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:text="No Request from customer !!"-->
+        <!--android:gravity="center"/>-->
+      <!---->
+     <!---->
+    <!--</LinearLayout>-->
+</LinearLayout>
+
+
