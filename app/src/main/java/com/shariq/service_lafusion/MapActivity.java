@@ -38,7 +38,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class MapActivity extends AppCompatActivity implements OnMapReadyCallback,LocationListener {
+public class MapActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     // TODO: Step-3: Enable 'Maps SDK for Android' and 'Directions API' in Google APIs console. (if it is not automatically enabled)
     // Google APIs Console Link: https://console.developers.google.com/apis/dashboard
@@ -74,49 +74,6 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
 //        locationList.add(new LatLng(22.298150, 73.197092));
 //        locationList.add(new LatLng(22.311093, 73.180872));
         custAdd="A-109, Rajlaxmi Complex,, Old Padra Rd, Chikuwadi, Haripura, Vadodara, Gujarat 390015";
-        man = (LocationManager) getSystemService(LOCATION_SERVICE);
-        isNet = man.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
-        isGps = man.isProviderEnabled(LocationManager.GPS_PROVIDER);
-
-        if (isNet || isGps) {
-            if (isNet) {
-                if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-
-                    return;
-                }
-                man.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 1000, 10, this);
-
-                if (man != null) {
-                    loc = man.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
-                    if (loc != null) {
-                        lati = loc.getLatitude();
-                        longi = loc.getLongitude();
-
-
-                        locationList.set(0,new LatLng(lati, longi  ));
-                    }
-                }
-            }
-            if (isGps) {
-                if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-
-                    return;
-                }
-                man.requestLocationUpdates(LocationManager.GPS_PROVIDER, 1000, 10, this);
-
-                if (man != null) {
-                    loc = man.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-                    if (loc != null) {
-                        lati = loc.getLatitude();
-                        longi = loc.getLongitude();
-
-
-                        locationList.set(0,new LatLng(lati, longi  ));
-                    }
-                }
-            }
-        }
-        Toast.makeText(getApplicationContext(), "LATI :" + lati + "LONGI:" + longi, Toast.LENGTH_LONG).show();
     }
 
     @Override
@@ -211,11 +168,6 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         builder.include(locationList.get(1));
         //}
 
-        if (myLocationMarker != null && loc != null) {
-            myLocationMarker.position(new LatLng(loc.getLatitude(),loc.getLongitude()));
-            builder.include(new LatLng(loc.getLatitude(), loc.getLongitude()));
-        }
-
         final LatLngBounds bounds = builder.build();
 
         // Waiting for map to be loaded properly
@@ -271,70 +223,6 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
 
         return data;
     }
-
-    @Override
-    public void onLocationChanged(Location location) {
-        isNet = man.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
-        isGps = man.isProviderEnabled(LocationManager.GPS_PROVIDER);
-
-        if (isNet || isGps) {
-            if (isNet) {
-                if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-
-                    return;
-                }
-                man.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 1000, 10, this);
-
-                if(man!=null)
-                {
-                    loc=man.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
-                    if(loc!=null)
-                    {
-                        lati=loc.getLatitude();
-                        longi=loc.getLongitude();
-                    }
-                }
-            }
-            if(isGps)
-            {
-                if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-
-                    return;
-                }
-                man.requestLocationUpdates(LocationManager.GPS_PROVIDER, 1000, 10, this);
-
-                if(man!=null)
-                {
-                    loc=man.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-                    if(loc!=null)
-                    {
-                        lati=loc.getLatitude();
-                        longi=loc.getLongitude();
-                    }
-                }
-            }
-        }
-        mapFragment.getMapAsync(this);
-
-        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
-
-    }
-
-    @Override
-    public void onStatusChanged(String provider, int status, Bundle extras) {
-
-    }
-
-    @Override
-    public void onProviderEnabled(String provider) {
-
-    }
-
-    @Override
-    public void onProviderDisabled(String provider) {
-
-    }
-
     //AsyncTask<input parameter,void`on progress change,Post execution>
     private class DownloadTask extends AsyncTask<String, Void, String> {
 
