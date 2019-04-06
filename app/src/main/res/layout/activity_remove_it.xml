@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:orientation="vertical"
+    tools:context=".QueryStatusActivity">
+
+    <include layout="@layout/layout_toolbar" />
+
+    <TextView
+        android:id="@+id/fTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/app_normal_margin"
+        android:layout_marginTop="@dimen/app_small_margin"
+        android:paddingRight="3dp"
+        android:text="Title (category)"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+
+    <TextView
+        android:id="@+id/fQsDesc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/app_normal_margin"
+        android:layout_marginRight="@dimen/app_normal_margin"
+        android:layout_marginTop="@dimen/app_small_margin"
+        android:background="@drawable/box"
+        android:lines="3"
+        android:paddingLeft="@dimen/app_small_margin"
+        android:text="Description here" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/app_normal_margin"
+        android:layout_marginTop="@dimen/app_normal_margin"
+        android:background="#d3d3d3"
+        android:gravity="center"
+
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/fivQsPhoto1"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:padding="10dp"
+            app:srcCompat="@drawable/cq_camera" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/maplayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <!--<Button-->
+            <!--android:id="@+id/mapBtn"-->
+           <!--android:layout_weight=""-->
+            <!--android:text="GOOGLE MAPS" />-->
+        <!--<Button-->
+           <!--style="@style/ButtonStyle"-->
+            <!--android:text="AR"/>-->
+        <Button
+            android:id="@+id/mapBtn"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="GOOGLE MAPS"
+            android:background="@drawable/round_button"
+            android:textColor="@color/colorBackgroundWhite"/>
+        <Button
+            android:id="@+id/arBtn"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="AR"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/round_button"
+            android:textColor="@color/colorBackgroundWhite"/>
+
+
+    </LinearLayout>
+
+    <!--<LinearLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:orientation="vertical">-->
+    <!--//for displaying AR part-->
+
+    <!--<android.support.v7.widget.RecyclerView-->
+    <!--android:id="@+id/qsRecyclerView"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="100dp"-->
+    <!--android:layout_marginLeft="@dimen/app_normal_margin"-->
+    <!--android:layout_marginRight="@dimen/app_normal_margin"-->
+    <!--android:background="@drawable/box"-->
+    <!--android:padding="5dp">-->
+
+    <!--</android.support.v7.widget.RecyclerView>-->
+
+
+    <!--// for displaying reply from sp side-->
+
+    <!--<android.support.v7.widget.RecyclerView-->
+    <!--android:id="@+id/rvSpReply"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="100dp"-->
+    <!--android:layout_marginLeft="@dimen/app_normal_margin"-->
+    <!--android:layout_marginRight="@dimen/app_normal_margin"-->
+    <!--android:layout_marginTop="5dp"-->
+    <!--android:background="@drawable/box"-->
+    <!--android:padding="5dp"-->
+    <!--android:visibility="gone">-->
+
+    <!--</android.support.v7.widget.RecyclerView>-->
+    <!--</LinearLayout>-->
+
+    <LinearLayout
+        android:id="@+id/llayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/fedtQsReply"
+            style="@style/EditTextStyle"
+            android:layout_marginTop="@dimen/app_normal_margin"
+            android:background="@drawable/box"
+            android:gravity="left|top"
+            android:hint="Reply"
+            android:lines="4"
+            android:padding="5dp" />
+
+        <EditText
+            android:id="@+id/fedtQsAmount"
+            style="@style/EditTextStyle"
+            android:layout_marginTop="@dimen/app_normal_margin"
+            android:background="@drawable/box"
+            android:gravity="left|top"
+            android:hint="Amount"
+            android:padding="5dp" />
+
+        <Button
+            android:id="@+id/fbtnSpSubmit"
+            style="@style/ButtonStyle"
+            android:layout_marginTop="10dp"
+            android:text="@string/submit"
+            android:textColor="@color/colorBackgroundWhite" />
+    </LinearLayout>
+
+</LinearLayout>

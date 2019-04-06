@@ -82,6 +82,7 @@
         <!--android:layout_weight="1"-->
          <!--/>-->
         <Button
+            android:id="@+id/btnCreateQuery"
             style="@style/ButtonStyle"
             android:text="@string/submit"
             tools:ignore="OnClick"

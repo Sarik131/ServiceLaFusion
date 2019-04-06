@@ -17,6 +17,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -47,13 +48,22 @@ public class CreateQueryActivity extends AppCompatActivity {
     TextView txtTitle;
     ImageView backBtn;
     EditText edtCatTitle;
+    Button sButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_query);
         edtCatTitle = findViewById(R.id.edtCatTitle);
-
+sButton=(Button)findViewById(R.id.btnCreateQuery);
+sButton.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        Intent intent=new Intent(CreateQueryActivity.this,RemoveIt.class);
+        intent.putExtra("catName","done");
+        startActivity(intent);
+    }
+});
         imageView1 = (ImageView) findViewById(R.id.ivCqPhoto1);
         edtCqWriteHere = (EditText) findViewById(R.id.edtCqWriteHere);
         imageView1.setOnClickListener(new View.OnClickListener() {

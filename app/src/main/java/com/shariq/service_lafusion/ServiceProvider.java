@@ -34,7 +34,6 @@ public class ServiceProvider extends AppCompatActivity {
         linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 Intent intent = new Intent(ServiceProvider.this,QueryStatusActivity.class);
                 intent.putExtra("check","visible");
                 startActivity(intent);
