@@ -1,33 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="176dp"
+    android:layout_height="match_parent"
     android:orientation="vertical">
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="176dp"
-    android:background="@color/colorPrimary"
-    android:padding="16dp"
-    android:orientation="vertical"
-    >
-    <ImageView
-        android:layout_width="100dp"
-        android:layout_height="87dp"
-        android:layout_gravity="center"
 
-        android:src="@drawable/wf1" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="176dp"
+        android:background="@color/colorPrimary"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="87dp"
+            android:layout_gravity="center"
+
+            android:src="@drawable/wf1" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/architects_daughter"
+            android:padding="5dp"
+            android:text="@string/app_name"
+            android:textColor="@color/colorBackgroundWhite"
+            android:textSize="30sp" />
+
+
+    </LinearLayout>
+
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:fontFamily="@font/architects_daughter"
-        android:padding="5dp"
-        android:text="@string/app_name"
-        android:textColor="@color/colorBackgroundWhite"
-        android:textSize="30sp" />
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginLeft="20dp"
+        android:text="Profile"
+        android:textSize="22dp"
+        android:textColor="@color/colorPrimary" />
 
-</LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginLeft="20dp"
+        android:text="My Request"
+        android:textSize="22dp"
+        android:textColor="@color/colorPrimary" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginLeft="20dp"
+        android:text="History"
+        android:textSize="22dp"
+        android:textColor="@color/colorPrimary" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginLeft="20dp"
+        android:text="Setting"
+        android:textSize="22dp"
+        android:textColor="@color/colorPrimary" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:text="LogOut"
+        android:textSize="22dp"
+        android:layout_marginLeft="20dp"
+        android:textColor="@color/colorPrimary"/>
 
 </LinearLayout>

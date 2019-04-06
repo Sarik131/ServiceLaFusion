@@ -112,6 +112,7 @@
             android:name=".ServiceProvider"
             android:screenOrientation="portrait" />
         <activity android:name=".RemoveIt"></activity>
+        <activity android:name=".RemoveIt2" />
     </application>
 
 </manifest>

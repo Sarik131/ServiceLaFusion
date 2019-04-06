@@ -1,6 +1,8 @@
 package com.shariq.service_lafusion;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -16,6 +18,7 @@ public class RemoveIt extends AppCompatActivity {
     ImageView photo;
     Button submit, map, ar;
     LinearLayout lllayout, maplayout;
+//    SharedPreferences data = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
 
 
     @Override
@@ -32,7 +35,7 @@ public class RemoveIt extends AppCompatActivity {
         map = (Button) findViewById(R.id.mapBtn);
         ar = (Button) findViewById(R.id.arBtn);
         maplayout = (LinearLayout) findViewById(R.id.maplayout);
-
+//        String check=data.getString("user","null");
 
         photo.setImageResource(R.drawable.ac);
         txttitle.setText("For Repairing AC at my home (Electrician)");

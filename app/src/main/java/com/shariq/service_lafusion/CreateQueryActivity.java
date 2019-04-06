@@ -59,7 +59,7 @@ sButton=(Button)findViewById(R.id.btnCreateQuery);
 sButton.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
-        Intent intent=new Intent(CreateQueryActivity.this,RemoveIt.class);
+        Intent intent=new Intent(CreateQueryActivity.this,RemoveIt2.class);
         intent.putExtra("catName","done");
         startActivity(intent);
     }

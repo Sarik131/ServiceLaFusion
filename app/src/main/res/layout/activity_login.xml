@@ -63,6 +63,7 @@
         android:layout_marginTop="20dp"
         android:background="@drawable/box"
         android:hint="@string/enter_email_id"
+        android:text="myemail@gmail.com"
         android:padding="5dp" />
 
     <EditText
@@ -75,6 +76,7 @@
         android:layout_marginTop="2dp"
         android:background="@drawable/box"
         android:hint="@string/password"
+        android:text="pass"
         android:padding="5dp" />
 
 
