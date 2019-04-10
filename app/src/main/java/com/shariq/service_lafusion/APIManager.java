@@ -43,5 +43,8 @@ public interface APIManager {
     @POST(Constant.URL_CREATE_QUERY)
     Call<Map<String, Object>> createQuery(@FieldMap Map<String, String> params);
 
+    @FormUrlEncoded
+    @POST(Constant.URL_QUERY_STATUS)
+    Call<Map<String, Object>> queryStatus(@FieldMap Map<String, String> params);
     // Add all your api calls here...
 }

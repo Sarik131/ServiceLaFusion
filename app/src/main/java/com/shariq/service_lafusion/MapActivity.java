@@ -158,7 +158,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
                     return;
                 }
                 Address location =address.get(0);
-                locationList.add(new LatLng(loc.getLatitude(), loc.getLongitude()));
+                locationList.add(new LatLng(location.getLatitude(), location.getLongitude()));
                 map.addMarker(new MarkerOptions().position(locationList.get(1)));
                 builder.include(locationList.get(1));
 

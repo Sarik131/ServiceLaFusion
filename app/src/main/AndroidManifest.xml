@@ -104,15 +104,21 @@
         <activity
             android:name=".ForgotPasswordActivity"
             android:screenOrientation="portrait" />
-        <!-- TODO: Step-1: Get an API Key for your project and put it here. -->
         <activity
             android:name=".MapActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ServiceProvider"
             android:screenOrientation="portrait" />
-        <activity android:name=".RemoveIt"></activity>
-        <activity android:name=".RemoveIt2" />
+        <activity
+            android:name=".RemoveIt"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".RemoveIt2"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".AfterRemoveActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>
