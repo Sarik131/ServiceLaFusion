@@ -49,19 +49,18 @@ public class CreateQueryActivity extends AppCompatActivity {
     ImageView backBtn;
     EditText edtCatTitle;
     Button sButton;
+    String query_id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_query);
         edtCatTitle = findViewById(R.id.edtCatTitle);
-sButton=(Button)findViewById(R.id.btnCreateQuery);
-sButton.setOnClickListener(new View.OnClickListener() {
+        sButton=(Button)findViewById(R.id.btnCreateQuery);
+        sButton.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
-        Intent intent=new Intent(CreateQueryActivity.this,RemoveIt2.class);
-        intent.putExtra("catName","done");
-        startActivity(intent);
+
     }
 });
         imageView1 = (ImageView) findViewById(R.id.ivCqPhoto1);
@@ -208,11 +207,15 @@ sButton.setOnClickListener(new View.OnClickListener() {
                         Log.d("error", "jsonString: " + jsonString);
 
                         JsonObject content = gson.fromJson(jsonString, JsonObject.class);
+                        query_id=content.get("query_id").getAsString();
 
+                        Intent intent=new Intent(CreateQueryActivity.this,RemoveIt2.class);
+                        intent.putExtra("catName","done");
+                        intent.putExtra("query_id",query_id);
+                        startActivity(intent);
                         // TODO: Read response here
                         //content.get("email").getAsString();
                         //content.get("password").getAsString();
-
                         // Convert JsonArray to your custom model class list as follow
 //                    ArrayList<LoginPost> myModelList = gson.fromJson(content.get(array_name).getAsJsonArray().toString(),
 //                    	new TypeToken<ArrayList<LoginPost>>(){}.getType());
