@@ -210,7 +210,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
             }
 
             data = stringBuilder.toString();
-
+            Log.d("In map",data);
             br.close();
 
         } catch (Exception e) {

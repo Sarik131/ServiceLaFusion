@@ -103,7 +103,7 @@ Log.d("MyLog","onSubmit");
                         Log.d("error", "jsonString: " + jsonString);
 
                         JsonObject content = gson.fromJson(jsonString, JsonObject.class);
-
+                        Toast.makeText(Cust_Registration.this, "Customer Registered!", Toast.LENGTH_SHORT).show();
                         // TODO: Read response here
                         //content.get("email").getAsString();
                         //content.get("password").getAsString();
