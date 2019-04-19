@@ -28,6 +28,7 @@ public class Homepage extends AppCompatActivity {
     RecyclerView recyclerView;
     GridLayoutManager layoutManager;
     private DrawerLayout drawerLayout;
+    private ActionBarDrawerToggle toggle;
     private ArrayList<Category> data = new ArrayList<>();
 
  /*
@@ -87,10 +88,11 @@ public class Homepage extends AppCompatActivity {
         data.add(new Category(R.drawable.icplumber, "Plumber"));
 
 
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar,
-                R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        toggle = new ActionBarDrawerToggle(this, drawerLayout,
+                R.string.navigation_drawer_open, R.string.navigation_drawer_close);//toolbar
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true); // to add actionbar
 
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         recyclerView.addItemDecoration(new SpaceItemDecoration(10));
@@ -146,5 +148,13 @@ public class Homepage extends AppCompatActivity {
 
 
         }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (toggle.onOptionsItemSelected(item)) {
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

@@ -15,7 +15,7 @@ import android.widget.Toast;
 import static android.widget.Toast.LENGTH_SHORT;
 
 public class QueryStatusActivity extends AppCompatActivity {
-    TextView tvDesc;
+    TextView tvDesc,tvTitle;
     ImageView imageView;
     EditText edtReply,edtAmount;
     Button submit;
@@ -26,6 +26,7 @@ public class QueryStatusActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_query_status);
         tvDesc=(TextView)findViewById(R.id.tvQsDesc);
+        tvTitle=(TextView) findViewById(R.id.tvTitle);
         imageView=(ImageView)findViewById(R.id.ivQsPhoto1);
         SharedPreferences data = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
 

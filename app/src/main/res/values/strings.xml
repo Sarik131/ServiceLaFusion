@@ -140,4 +140,11 @@
     <string name="google_api_key1">AIzaSyAnnbaR0HIFOSGP4RCCDMTe5hTJ-DQ7soM</string>
     <string name="please_wait_">Please Wait…</string>
 
+    <!-- navigation -->
+    <string name="profile">Profile</string>
+    <string name="request">My Request</string>
+    <string name="setting">Setting</string>
+    <string name="logout">Logout</string>
+    <string name="history1">History</string>
+
 </resources>

@@ -344,6 +344,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
                 lineOptions.addAll(points);
                 lineOptions.width(getResources().getDimension(R.dimen.route_thickness));
                 lineOptions.color(R.color.route);
+
             }
 
             // Drawing polyline in the Google Map for the i-th route
