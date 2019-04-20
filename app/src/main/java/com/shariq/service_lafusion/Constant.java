@@ -3,7 +3,7 @@ package com.shariq.service_lafusion;
 public class Constant {
 
     // TODO: Note: Don't create urls as BASE_URL + "some_url"
-    public static final String BASE_URL = "http://192.168.0.103:8080/";
+    public static final String BASE_URL = "http://192.168.43.148:8080/";
     public static final String URL_LOGIN = "user/login1";
     public static final String URL_REGISTER = "user/register";
     public static final String URL_CUST_REGISTER = "user/cregister";

@@ -3,7 +3,6 @@ package com.shariq.service_lafusion;
 import android.Manifest;
 import android.app.ProgressDialog;
 import android.content.pm.PackageManager;
-import android.graphics.Color;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
@@ -38,20 +37,20 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class MapActivity extends AppCompatActivity implements OnMapReadyCallback {
+public class MapActivity extends AppCompatActivity implements OnMapReadyCallback, LocationListener {
 
     // TODO: Step-3: Enable 'Maps SDK for Android' and 'Directions API' in Google APIs console. (if it is not automatically enabled)
     // Google APIs Console Link: https://console.developers.google.com/apis/dashboard
 
-    // TODO: Step-6: Create object of Google Map and list of locations.
-    private GoogleMap map;
     LocationManager man;
     Location loc;
     double lati = 0, longi = 0;
     boolean isGps, isNet;
     SupportMapFragment mapFragment = null;
     MarkerOptions myLocationMarker;
-    private ArrayList<LatLng> locationList = new ArrayList<>();
+    // TODO: Step-6: Create object of Google Map and list of locations.
+    private GoogleMap map;
+    //    private ArrayList<LatLng> locationList = new ArrayList<>();
     private String custAdd;
     private ProgressDialog progressDialog;
 
@@ -69,11 +68,49 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
 
         // TODO: Step-9: Prepare list of locations for getting route.
         // First location will be starting point, last location will be destination & intermediate locations will be way points.
-        locationList.add(new LatLng(22.332770, 73.217033));
+//        locationList.add(new LatLng(22.332770, 73.217033));
 //        locationList.add(new LatLng(22.311784, 73.191386));
 //        locationList.add(new LatLng(22.298150, 73.197092));
 //        locationList.add(new LatLng(22.311093, 73.180872));
-        custAdd="A-109, Rajlaxmi Complex,, Old Padra Rd, Chikuwadi, Haripura, Vadodara, Gujarat 390015";
+//        custAdd = "A-109, Rajlaxmi Complex,, Old Padra Rd, Chikuwadi, Haripura, Vadodara, Gujarat 390015";
+        custAdd = "Panorama Complex, 1, RC Dutt Rd, Opp Welcome Hotel, Alkapuri, Vadodara, Gujarat 390007";
+
+        man = (LocationManager) getSystemService(LOCATION_SERVICE);
+        isNet = man.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
+        isGps = man.isProviderEnabled(LocationManager.GPS_PROVIDER);
+
+        if (isNet || isGps) {
+            if (isNet) {
+                if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                    Toast.makeText(this, "Turn on location permission", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                man.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 1000, 10, this);
+
+                if (man != null) {
+                    loc = man.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+                    if (loc != null) {
+                        lati = loc.getLatitude();
+                        longi = loc.getLongitude();
+                    }
+                }
+            }
+            if (isGps) {
+                if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+
+                    return;
+                }
+                man.requestLocationUpdates(LocationManager.GPS_PROVIDER, 1000, 10, this);
+
+                if (man != null) {
+                    loc = man.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+                    if (loc != null) {
+                        lati = loc.getLatitude();
+                        longi = loc.getLongitude();
+                    }
+                }
+            }
+        }
     }
 
     @Override
@@ -88,21 +125,22 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         findViewById(R.id.fabDirections).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //if (locationList.size() >= 2) {
-                    String url = getDirectionsUrl(locationList.get(0),custAdd);
-//
+                if (loc != null) {
+                    String url = getDirectionsUrl(new LatLng(loc.getLatitude(),loc.getLongitude()), custAdd);
+                    Log.d("sarik", url);
                     DownloadTask downloadTask = new DownloadTask();
 
                     // Start downloading json data from Google Directions API
                     downloadTask.execute(url);
-//                } else {
-//                    Toast.makeText(MapActivity.this, "At least two locations are required for drawing route", Toast.LENGTH_LONG).show();
-//                }
+                } else {
+                    Toast.makeText(MapActivity.this, "Location not available", Toast.LENGTH_LONG).show();
+                }
             }
         });
     }
 
     // TODO: Step-11: Add following methods and async tasks
+
     /**
      * Get direction url for Google Direction API.
      */
@@ -141,44 +179,42 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
      */
     private void showMarkers() {
         LatLngBounds.Builder builder = new LatLngBounds.Builder();
-
+        if (loc != null) {
 //        for (int i = 0; i < locationList.size(); i++) {
-            map.addMarker(new MarkerOptions().position(locationList.get(0)));
+            map.addMarker(new MarkerOptions().position(new LatLng(loc.getLatitude(), loc.getLongitude())));
 
             // Adding location in bounds
-            builder.include(locationList.get(0));
+            builder.include(new LatLng(loc.getLatitude(), loc.getLongitude()));
 
-            Geocoder coder =new Geocoder(this);
+            Geocoder coder = new Geocoder(this);
             List<Address> address;
 
-            try{
-                address= coder.getFromLocationName(custAdd,5);
-                if(address == null)
-                {
+            try {
+                address = coder.getFromLocationName(custAdd, 5);
+                if (address == null) {
                     return;
                 }
-                Address location =address.get(0);
-                locationList.add(new LatLng(location.getLatitude(), location.getLongitude()));
-                map.addMarker(new MarkerOptions().position(locationList.get(1)));
-                builder.include(locationList.get(1));
+                Address location = address.get(0);
+                map.addMarker(new MarkerOptions().position(new LatLng(location.getLatitude(), location.getLongitude())));
+                builder.include(new LatLng(location.getLatitude(), location.getLongitude()));
 
-            }
-            catch(Exception e)
-            {
+            } catch (Exception e) {
                 e.getMessage();
             }
-        //}
+            //}
+            final LatLngBounds bounds = builder.build();
 
-        final LatLngBounds bounds = builder.build();
+            // Waiting for map to be loaded properly
+            map.setOnMapLoadedCallback(new GoogleMap.OnMapLoadedCallback() {
+                @Override
+                public void onMapLoaded() {
+                    map.moveCamera(CameraUpdateFactory.newLatLngBounds(bounds,
+                            getResources().getDimensionPixelSize(R.dimen.map_bounds_padding))); // Padding for markers
+                }
+            });
 
-        // Waiting for map to be loaded properly
-        map.setOnMapLoadedCallback(new GoogleMap.OnMapLoadedCallback() {
-            @Override
-            public void onMapLoaded() {
-                map.moveCamera(CameraUpdateFactory.newLatLngBounds(bounds,
-                        getResources().getDimensionPixelSize(R.dimen.map_bounds_padding))); // Padding for markers
-            }
-        });
+        }
+
     }
 
     /**
@@ -210,7 +246,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
             }
 
             data = stringBuilder.toString();
-            Log.d("In map",data);
+            Log.d("In map", data);
             br.close();
 
         } catch (Exception e) {
@@ -224,6 +260,79 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
 
         return data;
     }
+
+    @Override
+    public void onLocationChanged(Location location) {
+
+        isNet = man.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
+        isGps = man.isProviderEnabled(LocationManager.GPS_PROVIDER);
+
+        if (isNet || isGps) {
+            if (isNet) {
+                if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+
+                    return;
+                }
+                man.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 1000, 10, this);
+
+                if (man != null) {
+                    loc = man.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+                    if (loc != null) {
+                        lati = loc.getLatitude();
+                        longi = loc.getLongitude();
+                    }
+                }
+            }
+            if (isGps) {
+                if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+
+                    return;
+                }
+                man.requestLocationUpdates(LocationManager.GPS_PROVIDER, 1000, 10, this);
+
+                if (man != null) {
+                    loc = man.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+                    if (loc != null) {
+                        lati = loc.getLatitude();
+                        longi = loc.getLongitude();
+                    }
+                }
+            }
+
+
+            if (loc != null) {
+                if (myLocationMarker == null) {
+                    myLocationMarker = new MarkerOptions().position(new LatLng(loc.getLatitude(), loc.getLongitude()));
+                    map.addMarker(myLocationMarker);
+                    Log.d("MyLocation", "Lat :" + loc.getLatitude() + "Long :" + loc.getLongitude());
+                    Toast.makeText(this, "Lat :" + loc.getLatitude() + "Long :" + loc.getLongitude(), Toast.LENGTH_LONG);
+                } else {
+                    myLocationMarker.position(new LatLng(loc.getLatitude(), loc.getLongitude()));
+                }
+            } else {
+                Toast.makeText(this, "Error in finding location", Toast.LENGTH_SHORT).show();
+            }
+
+        }
+
+    }
+
+
+    @Override
+    public void onStatusChanged(String provider, int status, Bundle extras) {
+
+    }
+
+    @Override
+    public void onProviderEnabled(String provider) {
+
+    }
+
+    @Override
+    public void onProviderDisabled(String provider) {
+
+    }
+
     //AsyncTask<input parameter,void`on progress change,Post execution>
     private class DownloadTask extends AsyncTask<String, Void, String> {
 
