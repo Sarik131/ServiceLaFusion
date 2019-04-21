@@ -146,5 +146,8 @@
     <string name="setting">Setting</string>
     <string name="logout">Logout</string>
     <string name="history1">History</string>
+    <!--Firebase-->
+    <string name="create_query_image_url"></string>
+    <!--<string name="history1">History</string>-->
 
 </resources>

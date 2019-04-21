@@ -22,6 +22,7 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.PolylineOptions;
 
@@ -48,6 +49,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
     boolean isGps, isNet;
     SupportMapFragment mapFragment = null;
     MarkerOptions myLocationMarker;
+    Marker pointMarker;
     // TODO: Step-6: Create object of Google Map and list of locations.
     private GoogleMap map;
     //    private ArrayList<LatLng> locationList = new ArrayList<>();
@@ -117,7 +119,24 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         // TODO: Step-8: Override onMapReady method and handle loaded map here
         map = googleMap;
+        map.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
+            @Override
+            public void onMapClick(LatLng latLng) {
 
+                if (pointMarker == null) {
+                    pointMarker = map.addMarker(new MarkerOptions().position(latLng));
+                } else {
+                    pointMarker.setPosition(latLng);
+                }
+                Toast.makeText(
+                        MapActivity.this,
+                        "Lat : " + latLng.latitude + " , "
+                                + "Long : " + latLng.longitude,
+                        Toast.LENGTH_LONG).show();
+            }
+        });
+
+        // map.setOnInfoWindowClickListener((GoogleMap.OnInfoWindowClickListener) MapActivity.this);
         // TODO: Step-10: Show markers of locations on map and set zoom level in such a way that all markers can be visible in screen
         showMarkers();
 
