@@ -121,7 +121,7 @@ public class CreateQueryActivity extends AppCompatActivity {
                     }
 
                     Log.d("tag", "Url: " + imagesRef.getDownloadUrl());
-                    uploadPost(getString(R.string.create_query_image_url, "%2F", imageName));
+//                    uploadPost(getString(R.string.create_query_image_url, "%2F", imageName));
                     // Continue with the task to get the download URL
                     return imagesRef.getDownloadUrl();
 
@@ -133,7 +133,7 @@ public class CreateQueryActivity extends AppCompatActivity {
                         progressDialog.dismiss();
                     }
 
-                    uploadPost(getString(R.string.create_query_image_url, "%2F", imageName));
+//                    uploadPost(getString(R.string.create_query_image_url, "%2F", imageName));
                     if (task.isSuccessful()) {
                         Uri downloadUri = task.getResult();
                     } else {

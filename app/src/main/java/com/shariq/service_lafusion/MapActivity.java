@@ -119,22 +119,25 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         // TODO: Step-8: Override onMapReady method and handle loaded map here
         map = googleMap;
-        map.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
-            @Override
-            public void onMapClick(LatLng latLng) {
 
-                if (pointMarker == null) {
-                    pointMarker = map.addMarker(new MarkerOptions().position(latLng));
-                } else {
-                    pointMarker.setPosition(latLng);
-                }
-                Toast.makeText(
-                        MapActivity.this,
-                        "Lat : " + latLng.latitude + " , "
-                                + "Long : " + latLng.longitude,
-                        Toast.LENGTH_LONG).show();
-            }
-        });
+//        On Map click
+
+//        map.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
+//            @Override
+//            public void onMapClick(LatLng latLng) {
+//
+//                if (pointMarker == null) {
+//                    pointMarker = map.addMarker(new MarkerOptions().position(latLng));
+//                } else {
+//                    pointMarker.setPosition(latLng);
+//                }
+//                Toast.makeText(
+//                        MapActivity.this,
+//                        "Lat : " + latLng.latitude + " , "
+//                                + "Long : " + latLng.longitude,
+//                        Toast.LENGTH_LONG).show();
+//            }
+//        });
 
         // map.setOnInfoWindowClickListener((GoogleMap.OnInfoWindowClickListener) MapActivity.this);
         // TODO: Step-10: Show markers of locations on map and set zoom level in such a way that all markers can be visible in screen
