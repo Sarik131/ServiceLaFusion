@@ -7,6 +7,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.shariq.service_lafusion.model.Query;
+
 //implements HomeAdapter.ItemClickListener
 public class MainActivity extends AppCompatActivity  {
 //    HomeAdapter adapter;
@@ -23,7 +25,7 @@ public class MainActivity extends AppCompatActivity  {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(MainActivity.this,Start.class);
+                Intent intent = new Intent(MainActivity.this,QueryStatusActivity.class);
                 startActivity(intent);
                 finish();
             }

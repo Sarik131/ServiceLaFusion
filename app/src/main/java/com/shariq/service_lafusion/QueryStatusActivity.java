@@ -17,6 +17,8 @@ import android.widget.Toast;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.ImageLoader;
 import com.shariq.service_lafusion.adapter.SpAdapter;
 import com.shariq.service_lafusion.model.SpDetail;
 
@@ -53,15 +55,16 @@ public class QueryStatusActivity extends AppCompatActivity {
         submit=(Button)findViewById(R.id.btnSpSubmit);
 
         Bundle bundle=getIntent().getExtras();
-        String check= bundle.getString("check");
+       // String check= bundle.getString("check");
 
-        String query_id=bundle.getString("query_id");
+        String query_id="3";
+//        bundle.getString("query_id");
         Log.d("In query status",query_id);
-        if(check == "visible"){
+//        if(check == "visible"){
             edtAmount.setVisibility(View.VISIBLE);
             edtReply.setVisibility(View.VISIBLE);
             submit.setVisibility(View.VISIBLE);
-        }
+//        }
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -111,7 +114,10 @@ public class QueryStatusActivity extends AppCompatActivity {
                         Log.d("error", "jsonString: " + jsonString);
 
                         JsonObject content = gson.fromJson(jsonString, JsonObject.class);
+                        String image_url=content.get("image_url").getAsString();
+                        Log.d("error", "Image_url: " + image_url);
 
+                        ImageLoader.getInstance().displayImage(image_url, imageView,new DisplayImageOptions.Builder().cacheInMemory(true).build());
                         // TODO: Read response here
                         //content.get("email").getAsString();
                         //content.get("password").getAsString();

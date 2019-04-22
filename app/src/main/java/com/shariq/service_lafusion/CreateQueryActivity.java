@@ -72,6 +72,7 @@ public class CreateQueryActivity extends AppCompatActivity {
         sButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                uploadImage();
             }
         });
         imageView1 = (ImageView) findViewById(R.id.ivCqPhoto1);
@@ -121,8 +122,7 @@ public class CreateQueryActivity extends AppCompatActivity {
                     }
 
                     Log.d("tag", "Url: " + imagesRef.getDownloadUrl());
-//                    uploadPost(getString(R.string.create_query_image_url, "%2F", imageName));
-                    // Continue with the task to get the download URL
+ // Continue with the task to get the download URL
                     return imagesRef.getDownloadUrl();
 
                 }
@@ -133,7 +133,7 @@ public class CreateQueryActivity extends AppCompatActivity {
                         progressDialog.dismiss();
                     }
 
-//                    uploadPost(getString(R.string.create_query_image_url, "%2F", imageName));
+                    uploadPost(getString(R.string.create_query_image_url, "%2F", imageName));
                     if (task.isSuccessful()) {
                         Uri downloadUri = task.getResult();
                     } else {
@@ -166,7 +166,7 @@ public class CreateQueryActivity extends AppCompatActivity {
         params.put("catTitle", edtCatTitle.getText().toString());
         params.put("description", edtCqWriteHere.getText().toString());
         params.put("c_address", c_address);
-        params.put("imgPath", photoUrl);
+        params.put("image_url", photoUrl);
 
 
         //params.put("category", spinner.getSelectedItem().toString());
@@ -314,15 +314,13 @@ public class CreateQueryActivity extends AppCompatActivity {
 
                     }
         }
+//
+//        startActivityForResult(intent, 123);
+//        if (requestCode == 123 && resultCode == RESULT_OK) {
+//            double lat = data.getDoubleExtra("latitude", 0);
+//        }
 
     }
-    public void cSubmit(View view)
-    {
 
-
-        uploadImage();
-
-
-    }
 
 }

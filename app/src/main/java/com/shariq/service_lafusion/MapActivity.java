@@ -1,7 +1,9 @@
 package com.shariq.service_lafusion;
 
 import android.Manifest;
+import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
@@ -121,7 +123,9 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         map = googleMap;
 
 //        On Map click
-
+        Intent intent = new Intent();
+        intent.putExtra("latitude", 123);
+        setResult(Activity.RESULT_OK, intent);
 //        map.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
 //            @Override
 //            public void onMapClick(LatLng latLng) {

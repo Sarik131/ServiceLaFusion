@@ -1,39 +1,37 @@
 {
   "project_info": {
-    "project_number": "593863043328",
-    "firebase_url": "https://my-first-project-f5df0.firebaseio.com",
-    "project_id": "my-first-project-f5df0",
-    "storage_bucket": "my-first-project-f5df0.appspot.com"
+    "project_number": "465314654044",
+    "firebase_url": "https://servicelafusion-1554289601421.firebaseio.com",
+    "project_id": "servicelafusion-1554289601421",
+    "storage_bucket": "servicelafusion-1554289601421.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:593863043328:android:73e200910d0b4ad3",
+        "mobilesdk_app_id": "1:465314654044:android:73e200910d0b4ad3",
         "android_client_info": {
           "package_name": "com.shariq.service_lafusion"
         }
       },
       "oauth_client": [
         {
-          "client_id": "593863043328-j5ajktfacbf2d8bpf6q5f5h01lke2cc0.apps.googleusercontent.com",
+          "client_id": "465314654044-0a2jchdr4v1tb3cbocg89juebvumkscd.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCMxELV02Vi1VLOYVh1Ro_7HTR6FdkQvKc"
+          "current_key": "AIzaSyDfjWD7lQWY1guS4jsxGkYxeNGU87tx1SE"
         }
       ],
       "services": {
-        "analytics_service": {
-          "status": 1
-        },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
-        },
-        "ads_service": {
-          "status": 2
+          "other_platform_oauth_client": [
+            {
+              "client_id": "465314654044-0a2jchdr4v1tb3cbocg89juebvumkscd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }
