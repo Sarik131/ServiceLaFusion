@@ -315,6 +315,8 @@ public class CreateQueryActivity extends AppCompatActivity {
                     }
         }
 //
+        //
+        //
 //        startActivityForResult(intent, 123);
 //        if (requestCode == 123 && resultCode == RESULT_OK) {
 //            double lat = data.getDoubleExtra("latitude", 0);
